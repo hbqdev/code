@@ -1,0 +1,15 @@
+/*.topsection {
+    width:100%;
+    overflow:left;
+    padding:20px 30px 10px 28px;
+}*/
+div.img {
+    float:left;
+    vertical-align: text-middle;
+
+}
+.topsection div {
+    float:right;
+    vertical-align: middle
+    
+}

@@ -1,0 +1,17 @@
+# Listing of all stations, with room for expansion for future sites
+
+SBS:
+  # All addresses in Shorebird start with this prefix,
+  # ending with the scan station ID. Ie, SBS11 would
+  # have IP address 172.17.26.11
+  IP_root: 172.17.26
+  prod: [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,18]
+  canary: [11]
+  dev: [50,57]
+  checkin: [41,42,43,44,45]
+  server: [101, 103]
+
+#CAS:
+
+#TAS:
+

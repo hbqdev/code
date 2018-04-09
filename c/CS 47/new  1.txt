@@ -1,0 +1,22 @@
+ int sourceposition = 0; int targetposition = 0; int argposition = 0;
+while(sourceposition < phrasesz) {
+    if(phrase[sourceposition] != ' ') {
+        result[targetposition] = phrase[sourceposition];
+        targetposition++;
+        sourceposition++;
+    } else {
+         // first space
+         result[targetposition] = ' ';
+         targetposition++;
+         // argument
+         argposition = 0;
+         while(argposition < sz) {
+             result[targetposition] = arg[argposition];
+             targetposition++;
+             argposition++;
+         }
+         // second space
+         result[targetposition] = ' ';
+         targetposition++;
+    }
+}

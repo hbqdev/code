@@ -1,0 +1,9 @@
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\bin\Debug\MyFirstApp.exe.config
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\bin\Debug\MyFirstApp.exe
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\bin\Debug\MyFirstApp.pdb
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\obj\Debug\MyFirstApp.csprojResolveAssemblyReference.cache
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\obj\Debug\MyFirstApp.Form1.resources
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\obj\Debug\MyFirstApp.Properties.Resources.resources
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\obj\Debug\MyFirstApp.csproj.GenerateResource.Cache
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\obj\Debug\MyFirstApp.exe
+D:\Data\Programming\C#\MyFirstApp\MyFirstApp\obj\Debug\MyFirstApp.pdb

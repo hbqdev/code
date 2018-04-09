@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="69">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <df name="Assassignment5"
+        root="../../../Linux backup/NetBeansProjects/Assassignment5">
+      <df name="dist" kind="SOURCE_LOGICAL_FOLDER">
+        <df name="Debug" kind="SOURCE_LOGICAL_FOLDER">
+          <df name="GNU-Linux-x86" kind="SOURCE_LOGICAL_FOLDER">
+          </df>
+        </df>
+      </df>
+      <in>Assignment5.c</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Assassignment5_1-Makefile.mk</itemPath>
+      <itemPath>../../../Linux backup/NetBeansProjects/Assassignment5/makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>../../../Linux backup/NetBeansProjects/Assassignment5</Elem>
+  </sourceRootList>
+  <projectmakefile>Assassignment5_1-Makefile.mk</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>Cygwin|Cygwin</compilerSet>
+        <platform>3</platform>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>../../../Linux backup/NetBeansProjects/Assassignment5</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f makefile</buildCommand>
+          <cleanCommand>${MAKE} -f makefile clean</cleanCommand>
+          <executablePath></executablePath>
+          <cTool>
+            <incDir>
+              <pElem>../../../Linux backup/NetBeansProjects/Assassignment5</pElem>
+            </incDir>
+          </cTool>
+        </makeTool>
+      </makefileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
