@@ -1,0 +1,7 @@
+#!/bin/bash
+# To install (once per machine):
+sudo ./install.sh
+
+# To configure (once per session):
+. setup.sh
+

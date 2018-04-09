@@ -1,0 +1,35 @@
+// Serializable representation of a camera model and a multi-camera
+// calibration dataset.
+
+syntax = "proto2";
+
+package research.katamari;
+
+import "geometry.proto";
+import "camera_information.proto";
+
+// Learned camera parameters.  It is a good idea to intialize the
+// focal length before calibration, but all other parameters should
+// generally be left at their defaults.
+message CameraModelIntrinsics {
+  optional double focal_length_x = 1 [default = 1.0];
+  optional double focal_length_y = 2 [default = 1.0];
+  optional double distortion_center_x = 3;
+  optional double distortion_center_y = 4;
+  optional double radial_k1 = 5;
+  optional double radial_k2 = 6;
+  optional double radial_k3 = 7;
+  optional double tangential_p1 = 8;
+  optional double tangential_p2 = 9;
+}
+
+message CalibratedCamera {
+  optional string name = 1;
+  optional CameraInformation information = 2;
+  optional CameraModelIntrinsics intrinsic = 3;
+  optional Transform3Proto extrinsic = 4;
+}
+
+message MultiCameraCalibration {
+  repeated CalibratedCamera cameras = 1;
+}

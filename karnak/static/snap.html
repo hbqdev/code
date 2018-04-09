@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <script type="text/javascript" src="js/jquery.js" ></script>
+      <script type="text/javascript">
+         var sock = null;
+         var ellog = null;
+
+         window.onload = function() {
+
+            var wsuri;
+            ellog = document.getElementById('log');
+       
+      // open a websocket back to the host
+            if (window.location.protocol === "file:") {
+               wsuri = "ws://localhost:9000";
+            } else {
+               wsuri = "ws://" + window.location.hostname + ":9000";
+            }
+
+            if ("WebSocket" in window) {
+               sock = new WebSocket(wsuri);
+            } else if ("MozWebSocket" in window) {
+               sock = new MozWebSocket(wsuri);
+            } else {
+               log("Browser does not support WebSocket!");
+            }
+
+      // handle the socket callbacks
+            if (sock) {
+               sock.onopen = function() {
+                  log("Connected to " + wsuri);
+               }
+
+               sock.onclose = function(e) {
+                  log("Connection closed (wasClean = " + e.wasClean + ", code = " + e.code + ", reason = '" + e.reason + "')");
+                  sock = null;
+               }
+
+               sock.onmessage = function(e) {
+                 // socket content is json encoded dict 
+		 content = JSON.parse(e.data);
+
+		 log(content["msg:html"]);
+
+                 for (var key in content) {
+		  request = key.split(':');
+		  log(request)
+		  switch (request[1]){
+                        case "newmason": // add a new tile, assumes the masonry stuff is in place
+                          alert("got a new tile");
+                          // placetile("newmason", content);
+                          break;
+			case "replaceWith": // DANGEROUS!
+			  $("#"+request[0]).replaceWith(content[key]);
+			  break;
+			case "html":
+			  $("#"+request[0]).html(content[key]);
+			  break;
+			default:
+			  $("#"+request[0]).attr(request[1],content[key]);
+		  }
+		 }
+               }
+            }
+		
+	    $('#log_toggle').click(
+                 function(){
+			if ($('#log_toggle').html() == 'hide logs'){
+			$('#log').hide(100, function(){
+			 $('#log_toggle').html('show logs')
+			}); }
+			else {
+                         $('#log').show(100, function(){
+                         $('#log_toggle').html('hide logs') });
+			}
+		}
+		);
+         };
+
+         function broadcast() {
+            var msg = document.getElementById('message').value;
+            if (sock) {
+               sock.send(msg);
+               log("Sent: " + msg);
+            } else {
+               log("Not connected.");
+            }
+         };
+
+         function log(m) {
+            ellog.innerHTML += m + '\n';
+            ellog.scrollTop = ellog.scrollHeight;
+         };
+      </script>
+   </head>
+   <body>
+	<img height="768" width="1024" src="none.jpg" id="snapshot" />
+	<div id="msg">nothing yet ... </div>
+      <noscript>You must enable JavaScript</noscript>
+      <button id="log_toggle">hide logs</button>
+      <pre id="log" style="height: 20em; overflow-y: scroll; background-color: #aaa;"></pre>
+   </body>
+</html>

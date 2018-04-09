@@ -1,0 +1,15 @@
+base_directory: static
+scratch_directory: tmp
+auth_server:
+  type: AuthServer
+  name: auth_server
+credentials:
+ - type: ServiceAccount
+   service_account_email: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn@developer.gserviceaccount.com
+   service_account_name: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn.apps.googleusercontent.com
+   private_key_file: keys/0d972c7184df27f390eb32ce3b3e68ec4ce5d9b9-privatekey.p12
+   name: service
+storage:
+ - type: BigStore
+   bucket: objects3d-scans-sb
+   name: bigstore

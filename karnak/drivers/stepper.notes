@@ -1,0 +1,27 @@
+Commands
+
+V
+
+Request the status of the rotary table. Usual reply would be ^R1R2R3R4 indicating rotary 1 ready, rotary 2 ready, etc. ^B1xxxR2R3R4 means rotary 1 is busy where xxx are 3 bytes indicates how many steps the rotary still has to perform.
+
+SmMxxx
+
+Sets the speed of the motor m to xxx, where xxx is a 3 bytes of data indicating the speed. Example code: port.Write("S1M" + (char)0 + (char)6 + (char)255); // set motor 1 to speed 1791. The standard speed range of our rotary table is: 0x000001 to 0x0012FF (1 to 4863). Controller will respond with ^mxx mirroring the motor number and 2 last bytes of speed setting.
+
+ImMxxx
+
+Turns motor m xxx number of steps. Controller will acknowledge with ^Bmxxx
+
+DmCWLO
+
+Set motor number m to rotate clockwise (So each consecutive command to rotate the motor m will rotate it clockwise).
+
+DmCWHi
+
+Sets rotary m to rotate counterclockwise.
+
+EmHALT
+
+Rotary m stop.
+
+

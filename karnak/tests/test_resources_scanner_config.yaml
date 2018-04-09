@@ -1,0 +1,97 @@
+base_directory: static
+scratch_directory: tmp
+station:
+  name: Station Name
+  touchscreen: true
+  model: Revision 2012/07; lights:20120807_cross2_top6
+  capture_directory: capture
+  calibration_directory: calibration
+  starting_rotation_angle: 90
+resources:
+  - type: FakeCamera
+    name: front camera
+    model: Canon 5DM3
+    position: FRONT
+    camera_number: 10
+    width: 10
+    height: 10
+    inventory_id: NO INVENTORY ID
+    ip_address: 192.168.101.10
+    angle_degrees: 10
+    focal_length_mm: 50
+    f_stop: 22
+    inverted: true
+  - type: FakeCamera
+    name: top camera
+    model: Canon 5DM3
+    position: TOP
+    camera_number: 20
+    width: 10
+    height: 10
+    inventory_id: NO INVENTORY ID
+    ip_address: 192.168.101.20
+    focal_length_mm: 50
+    f_stop: 22
+  - type: FakeCamera
+    name: ortho camera
+    model: Canon 5DM3
+    position: ORTHO
+    camera_number: 30
+    width: 10
+    height: 10
+    inventory_id: NO INVENTORY ID
+    ip_address: 192.168.101.30
+    focal_length_mm: 50
+    f_stop: 22
+  - type: FakeCamera
+    name: ortho table camera
+    model: Canon 5DM3
+    position: BOTTOM
+    camera_number: 40
+    width: 10
+    height: 10
+    inventory_id: NO INVENTORY ID
+    ip_address: 192.168.101.40
+    focal_length_mm: 50
+    f_stop: 22
+  - type: WebCamera
+    name: builtin camera
+    position: FRONT
+    camera_number: 50
+    inventory_id: NO INVENTORY ID
+    ip_address: 192.168.101.40
+  - type: ImsStepper
+    name: turntable
+    address: 192.168.0.60
+    port: -1
+    steps: 15200
+  - type: LightingController
+    name: lighting
+    handle: /dev/serial/by-id/usb-ENTTEC_DMX_USB_PRO_EN103962-if00-port0
+    front_lights: [1, 2, 3, 4]
+    top_lights: [2, 3]
+  - type: Scanner2d
+    name: scan2d
+    scan_segments: 72
+    resources:
+     - front camera
+     - top camera
+     - ortho camera
+     - builtin camera
+     - turntable
+     - lighting
+  - type: OrthoTable
+    name: Ortho Table Scan
+    resources:
+     - ortho table camera
+     - scan2d
+packer:
+  type: Tarball
+  name: Tarball
+  output_directory: tarballs
+credentials:
+ - service_account_email: fake@developer.gserviceaccount.com
+   service_account_name: fake.apps.googleusercontent.com
+   private_key_file: keys/fake-privatekey.p12
+   name: Account 1
+   type: ServiceAccount

@@ -1,0 +1,55 @@
+profiles {
+  name: "default"
+  alignment {
+    max_icp_passes: 20
+    max_distance_initial: 0.050  # 50.0mm
+    max_distance_final: 0.001  # 1.0mm
+
+    max_distance_shrink_factor: 0.33
+    improvement_threshold_shrink: 0.03
+    improvement_threshold_stop: 0.003
+
+    correspondence_min_cosine: 0.5  # 60 degrees
+
+    min_pair_correspondences: 12  # count (>=6)
+    min_pair_overlap: 0.05  # fraction [0,1]
+
+    desired_per_mesh_correspondences: 1000
+    expected_pair_overlap: 0.40
+    correspondence_subsample_min: 0.001
+    correspondence_subsample_max: 0.100
+
+    save_aligned_meshes: true
+    save_aligned_textured_meshes: true
+  }
+  merging {
+    cross_mesh_merge_distance: 0.0005  # 0.5mm
+    min_absolute_component_size: 16
+    min_independent_component_size: 1024
+    min_merged_model_component_size_fraction: 0.02
+    perturbation_angle_radians: 0.5  # ~29 degrees
+    surface_offset: 0.000
+    poisson {
+      depth: 10
+      scale: 1.25
+      solver_divide: 9
+      iso_divide: 9
+      samples_per_node: 2
+      confidence: false
+      verbose: true
+    }
+  }
+  coloring {
+    color_transfer_max_distance: 0.010  # 10 mm
+    color_transfer_nominal_distance: 0.0001  # 0.1 mm
+    photo_color_weight_exponent: 8.0
+    color_balancing {
+      desired_sample_count: 30000
+      min_stable_luminance: 0.0039216  # 1.0 / 255.0
+      min_inclusion_weight: 0.001
+      included_weight_fraction: 0.50
+    }
+    save_single_photo_colorized_merged_models: false
+    output_binary_object_masks: true
+  }
+}

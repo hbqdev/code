@@ -1,0 +1,47 @@
+// Copyright 2011 Google Inc. All Rights Reserved.
+// Author: kuffner@google.com (James Kuffner)
+//
+// Low-level basic math data structures for Katamari 3D models.
+
+syntax = "proto2";
+
+package research.katamari;
+
+// Represent a 2D vector.
+message Vector2Proto {
+  required double x = 1;
+  required double y = 2;
+}
+
+// Represent a 3D vector.
+message Vector3Proto {
+  // The x,y,z vector components.
+  required double x = 1;
+  required double y = 2;
+  required double z = 3;
+}
+
+// Rotation in 3D represented as a unit quaternion.
+message QuaternionProto {
+  // Components of the quaternion.  The default component values
+  // represent an identity rotation.
+  required double w = 1 [default = 1.0];
+  required double x = 2 [default = 0.0];
+  required double y = 3 [default = 0.0];
+  required double z = 4 [default = 0.0];
+}
+
+// Represent a 3D rigid transformation.  This message represents pure
+// translations and rotations only (no scaling).
+message Transform3Proto {
+  optional Vector3Proto translation = 1;
+  optional QuaternionProto rotation = 2;
+}
+
+// Represents a bounding box for an object by the min and max corners.
+message Vector3BoundingBox {
+  // The min corner of the bounding box.
+  required Vector3Proto min = 1;
+  // The max corner of the bounding box.
+  required Vector3Proto max = 2;
+}

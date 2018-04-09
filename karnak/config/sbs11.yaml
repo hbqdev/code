@@ -1,0 +1,125 @@
+base_directory: static
+scratch_directory: tmp
+station:
+  name: sbs11
+  touchscreen: false
+  model: Revision 2012/08; camera:canon; lights:201208_cross2sb_top6
+  capture_directory: capture
+  calibration_directory: calibration
+  daily_directory: daily
+  test_directory: test
+  top_shots: 0
+  front_shots: 0
+  ortho_shots: 72
+  has_bottom_shot: false
+  live_preview_port: 8090
+resources:
+ - type: ArtProjectCamera
+   name: ortho_camera
+   model: Canon 5DM3
+   position: ORTHO
+   camera_number: 10
+   inventory_id: NO INVENTORY ID
+   guid: ac40e9cd50094b5b99b0814a17186a60
+   focal_length_mm: 50
+   inverted: true
+   aperture: 18
+   shutterspeed: 1/30
+   iso: 125
+   server_url: localhost:8090
+   crop_rectangle: (  998, 250, 4818, 3744 )
+# - type: ArtProjectCamera
+#   name: front_camera
+#   model: Canon 5DM3
+#   position: FRONT
+#   camera_number: 20
+#   angle_degrees: 15
+#   inventory_id: NO INVENTORY ID
+#   guid: d18532436939441e87297af1784f0edb
+#   focal_length_mm: 50
+#   aperture: 18
+#   shutterspeed: 1/8
+#   iso: 100
+#   server_url: localhost:8091
+ - type: ArtProjectCamera
+   name: top_camera
+   model: Canon 5DM3
+   position: TOP
+   camera_number: 30
+   inventory_id: NO INVENTORY ID
+   guid: 46313c355c91450cb6e027e1770edfa5
+   focal_length_mm: 50
+   aperture: 18
+   shutterspeed: 1/100
+   iso: 400
+   server_url: localhost:8092
+ - type: CanonCamera
+   name: bottom_camera
+   model: Canon T2i
+   position: BOTTOM
+   camera_number: 40
+   inventory_id: NO INVENTORY ID
+   port: usb:002,011
+   focal_length_mm: 50
+   aperture: 18
+   shutterspeed: 1/13
+   iso: 100
+ - type: WebCamera
+   name: builtin_camera
+   position: PREVIEW
+   camera_number: 100
+   inventory_id: NO INVENTORY ID
+   port: /dev/v4l/by-id/usb-046d_0823_9ABA64A0-video-index0
+ - type: ImsStepper
+   name: turntable
+   address: 192.168.33.1
+   port: 503
+   steps: 3683584
+   delay_per_step: 0.00005
+   init_cmds:
+     - hc 0
+     - rc 90
+     - p 0
+     - a 200000
+     - d 80000
+     - vm 300000
+ - type: LightingController
+   name: lighting
+   handle: /dev/dmx0
+   front_lights: [1, 2, 3, 4]
+   top_lights: [1, 2, 3, 4]
+#   bottom_lights: [4]
+   preview_lights: [1, 2, 3]
+ - type: Scanner2d
+   name: scan2d
+   scan_segments: 72
+   table_type: WHITE_WOOD
+   capture_alternate_lighting: false
+   resources:
+   # - front_camera
+   # - top_camera
+    - ortho_camera
+    - builtin_camera
+    - turntable
+    - lighting
+   starting_rotation_angle: 0
+ - type: OrthoTable
+   name: ortho_table
+   table_type: GLASS
+   resources:
+    - bottom_camera
+    - scan2d
+credentials:
+ - type: ServiceAccount
+   service_account_email: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn@developer.gserviceaccount.com
+   service_account_name: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn.apps.googleusercontent.com
+   private_key_file: keys/0d972c7184df27f390eb32ce3b3e68ec4ce5d9b9-privatekey.p12
+   name: service
+storage:
+ - type: BigStore
+   bucket: objects3d-scans-sb
+   name: bigstore
+packer:
+  type: Tarball
+  name: tarball
+  output_directory: static/tarballs

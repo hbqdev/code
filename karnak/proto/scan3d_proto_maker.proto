@@ -1,0 +1,27 @@
+// Configuration for the scan3d_proto_packer class
+
+syntax = "proto2";
+
+package research.katamari;
+
+// This is the command line argument to scan3d_proto_packer_tool
+message Scan3dProtoMakerRequest {
+  // Path to the on-disk ScanObject proto.
+  required string manifest_path = 1;
+
+  // Unique name to use for this scan.
+  required string scan_name = 2;
+
+  // Basename of the on-disk MultiCameraCalibration proto.
+  required string calibration_filename = 3;
+
+  // The directory for the capture imagery.  It is assumed that the calibration
+  // and empty shots are also in this directory.
+  required string capture_dir = 4;
+
+  // Where to put the output.
+  required string output_dir = 5;
+
+  // What to call the output Scan3d proto.
+  required string output_scan_filename = 6;
+}

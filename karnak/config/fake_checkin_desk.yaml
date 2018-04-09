@@ -1,0 +1,20 @@
+base_directory: static
+scratch_directory: tmp
+resources:
+ - type: WebCamera
+   name: checkin_camera
+   position: PREVIEW
+   camera_number: 1000
+   inventory_id: NO INVENTORY ID
+   port: /dev/v4l/by-id/usb-046d_0821_99A292D0-video-index0
+ - type: FakePrinter
+   name: printer
+ - type: FakeScale
+   name: scale
+checkin:
+  type: CheckinDesk
+  name: checkin_desk
+  resources:
+   - printer
+   - checkin_camera
+   - scale

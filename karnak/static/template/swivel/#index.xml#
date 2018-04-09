@@ -1,0 +1,94 @@
+<html lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Karnak 1.0</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+  <link rel="stylesheet" href="css/style.css" />  
+  <link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
+  <script type="text/javascript" src="highslide/highslide-full.js"></script>
+  <script type="text/javascript" src="js/socketed.js"></script>
+  <script type="text/javascript">
+        hs.graphicsDir = 'highslide/graphics/';
+        hs.outlineType = 'rounded-white';
+        hs.showCredits = false;
+        hs.wrapperClassName = 'draggable-header';
+	hs.width = 645;
+	hs.height = 580;
+  </script>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.masonry.min.js"></script>
+  <script src="js/jquery.infinitescroll.js"></script>
+
+  <script type="text/javascript" >
+  $(function(){
+
+    var $container = $('#container');
+
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.box',
+        columnWidth: 100
+      });
+    });
+
+    $container.infinitescroll({
+      navSelector  : '#page-nav',    // selector for the paged navigation
+      nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
+      itemSelector : '.box',     // selector for all items you'll retrieve
+      loading: {
+          finishedMsg: 'No more objects to load.',
+          img: 'images/loading.gif'
+        }
+      },
+
+
+      function( newElements ) {
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        $newElems.imagesLoaded(function(){
+          $newElems.animate({ opacity: 1 });
+          $container.masonry( 'appended', $newElems, true 
+		//// fill the page as a callback ... 
+		, function(){
+		     $('#container').infinitescroll('retrieve');
+                  }
+		);
+        });
+     }
+    );
+  });
+
+  function onPageLoad() {
+	$('#container').infinitescroll('retrieve');
+  }
+
+  </script>
+</head>
+
+<body class="demos " onload="onPageLoad();">
+  <div id="site-nav" style="float:left;"> 
+	<img src="images/logo.jpg"></img>
+	<div t:render="toc"></div>
+  </div> 
+    <div t:render="help" class="help" style="position:absolute; bottom:0;">
+      <a href="#help">help info should be here</a>
+    </div>
+    <div id="content" style="position:absolute;left:14em;top:4.1em;">
+      <h1 t:render="title" />
+      <div t:render="stuff" />
+      <div id="container" class="transitions-enabled infinite-scroll clearfix" >
+        <!-- starts empty, but onload calls an initial retrieve -->
+      </div> <!-- #container -->
+      
+      <nav id="page-nav">
+        <a href="content/2.html"></a>
+      </nav>
+      
+      <footer id="site-footer">
+      </footer>
+      
+    </div> <!-- #content -->
+  </body>
+</html>

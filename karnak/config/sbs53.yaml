@@ -1,0 +1,92 @@
+base_directory: static
+scratch_directory: tmp
+station:
+  name: sbs53
+  touchscreen: false
+  model: Revision 2012/08; camera:canon; lights:201208_cross2sb_top6
+  capture_directory: capture
+  calibration_directory: calibration
+  daily_directory: daily
+resources:
+ - type: ArtProjectCamera
+   name: front_camera
+   model: Canon 5DM3
+   position: FRONT
+   camera_number: 20
+   angle_degrees: 15
+   inventory_id: NO INVENTORY ID
+   guid: 589ab3b3ff044ef4a79f52e99631531b
+   focal_length_mm: 50
+   aperture: 36
+   shutterspeed: 1/5
+   iso: 100
+   port: usb:02,03
+   server_url: localhost:8091
+ - type: ArtProjectCamera
+   name: top_camera
+   model: Canon 5DM3
+   position: TOP
+   camera_number: 10
+   angle_degrees: 15
+   inventory_id: NO INVENTORY ID
+   guid: 5bbc2d93f49341f9911b542e750fff46 
+   focal_length_mm: 50
+   aperture: 22
+   shutterspeed: 1/5
+   iso: 100
+   port: usb:02,04
+   server_url: localhost:8092
+ - type: PrimesenseCamera
+   name: depth_camera
+   model: RD1.09
+   position: DEPTH
+   camera_number: 30
+   rotate_degrees: 0
+   inventory_id: depth0
+   server_url: localhost:8093
+ - type: ImsStepper
+   name: turntable
+   address: 192.168.33.1
+   port: 503
+   steps: 1217731
+   delay_per_step: 0.00005
+   init_cmds:
+     - hc 0
+     - rc 85
+     - p 0
+     - a 80000
+     - d 80000
+     - vm 500000
+ - type: LightingController
+   name: lighting
+   handle: /dev/dmx0
+   front_lights: [1, 2, 3]
+   top_lights: [1, 2, 3]
+   preview_lights: [1, 2, 3]
+   bottom_lights: [4]
+ - type: Scanner2d
+   name: scan2d
+   scan_segments: 72
+   table_type: WHITE_WOOD
+   capture_alternate_lighting: false
+   resources:
+    - depth_camera
+    - front_camera
+    - top_camera
+    - turntable
+    - lighting
+   starting_rotation_angle: 270
+credentials:
+ - type: ServiceAccount
+   service_account_email: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn@developer.gserviceaccount.com
+   service_account_name: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn.apps.googleusercontent.com
+   private_key_file: keys/0d972c7184df27f390eb32ce3b3e68ec4ce5d9b9-privatekey.p12
+   name: service
+storage:
+ - type: BigStore
+   bucket: objects3d-scans-sb
+   name: bigstore
+packer:
+  type: Tarball
+  name: tarball
+  output_directory: static/tarballs

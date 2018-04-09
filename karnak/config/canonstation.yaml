@@ -1,0 +1,90 @@
+base_directory: static
+scratch_directory: tmp
+station:
+  name: sbs1
+  touchscreen: false
+  model: Revision 2012/08; lights:20120807_cross2_top6
+  capture_directory: capture
+  calibration_directory: calibration
+resources:
+ - type: CanonCamera
+   name: ortho_camera
+   model: Canon T2i
+   position: ORTHO
+   camera_number: 10
+   inventory_id: NO INVENTORY ID
+   port: usb:002,017
+   focal_length_mm: 35 
+ - type: CanonCamera
+   name: front_camera
+   model: Canon T2i
+   position: FRONT
+   camera_number: 20
+   angle_degrees: 15
+   inventory_id: NO INVENTORY ID
+   port: usb:002,018
+   focal_length_mm: 35
+ - type: CanonCamera
+   name: top_camera
+   model: Canon T2i
+   position: TOP
+   camera_number: 30
+   inventory_id: NO INVENTORY ID
+   port: usb:002,019
+   focal_length_mm: 35
+ - type: ElphelCamera
+   name: bottom_camera
+   model: Elphel 323
+   position: BOTTOM
+   camera_number: 40
+   inventory_id: NO INVENTORY ID
+   ip_address: 192.168.101.40
+   focal_length_mm: 50
+ - type: WebCamera
+   name: builtin_camera
+   position: PREVIEW
+   camera_number: 100
+   inventory_id: NO INVENTORY ID
+   port: /dev/v4l/by-id/usb-046d_0823_9ABA64A0-video-index0
+ - type: ImsStepper
+   name: turntable
+   address: 192.168.33.1
+   port: 503 
+   steps: 1220000
+ - type: LightingController
+   name: lighting
+   handle: /dev/dmx
+   front_lights: [1, 2, 3, 4]
+   top_lights: [2, 3, 4]
+ - type: Crosshair
+   name: crosshair
+   address: 192.168.101.2
+scanners:
+ - type: Scanner2d
+   name: scan2d
+   scan_segments: 72
+   resources:
+    - front_camera
+    - top_camera
+    - ortho_camera
+    - builtin_camera
+    - turntable
+    - lighting
+ - type: OrthoTable
+   name: ortho
+   resources:
+    - bottom_camera
+credentials:
+ - type: ServiceAccount
+   service_account_email: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn@developer.gserviceaccount.com
+   service_account_name: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn.apps.googleusercontent.com
+   private_key_file: keys/0d972c7184df27f390eb32ce3b3e68ec4ce5d9b9-privatekey.p12
+   name: service
+storage:
+ - type: BigStore
+   bucket: katamari-2d-out
+   name: bigstore
+packer:
+  type: Tarball
+  name: tarball
+  output_directory: static/tarballs

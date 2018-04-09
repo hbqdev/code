@@ -1,0 +1,92 @@
+base_directory: static
+scratch_directory: tmp
+station:
+  name: fake_station
+  touchscreen: false
+  model: Revision 2012/08
+  capture_directory: capture
+  calibration_directory: calibration
+  daily_directory: daily
+  test_directory: test
+  starting_rotation_angle: 90
+  has_bottom_shot: false
+  top_shots: 5
+  front_shots: 73
+  ortho_shots: 73
+  has_plank: false
+resources:
+ - type: FakeCamera
+   name: front_camera
+   model: PIL Camera
+   width: 640
+   height: 480
+   position: FRONT
+   camera_number: 10
+   inventory_id: NO INVENTORY ID
+   inverted: true
+ - type: FakeCamera
+   name: top_camera
+   model: PIL Camera
+   width: 640
+   height: 480
+   position: TOP
+   camera_number: 20
+   inventory_id: NO INVENTORY ID
+ - type: FakeCamera
+   name: ortho_camera
+   model: PIL Camera
+   width: 640
+   height: 480
+   position: ORTHO
+   camera_number: 30
+   inventory_id: NO INVENTORY ID
+ - type: FakeCamera
+   name: bottom_camera
+   model: PIL Camera
+   width: 640
+   height: 480
+   position: BOTTOM
+   camera_number: 40
+   inventory_id: NO INVENTORY ID
+ - type: FakeStepper
+   name: turntable
+ - type: LightingController
+   name: lighting
+   handle: fake
+   front_lights: [1, 2, 3, 4]
+   top_lights: [2, 3, 4]
+   preview_lights: [2, 3]
+ - type: Scanner2d
+   name: scan2d
+   scan_segments: 72
+   turntable_type: WHITE_WOOD
+   capture_alternate_lighting: false
+   resources:
+    - front_camera
+    - top_camera
+    - ortho_camera
+    - turntable
+ - type: OrthoTable
+   name: ortho_table
+   resources:
+    - bottom_camera
+    - scan2d
+ - type: ShoeLightController
+   name: shoe_lights
+   handle: fake
+   shoe_light_port: ttyUSB0
+   shoe_lights: [1]
+credentials:
+ - type: ServiceAccount
+   service_account_email: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn@developer.gserviceaccount.com
+   service_account_name: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn.apps.googleusercontent.com
+   private_key_file: keys/0d972c7184df27f390eb32ce3b3e68ec4ce5d9b9-privatekey.p12
+   name: service
+xstorage:
+ - type: BigStore
+   bucket: katamari-2d-out
+   name: BigStore
+packer:
+  type: Tarball
+  name: Tarball
+  output_directory: static/tarballs

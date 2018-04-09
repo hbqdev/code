@@ -1,0 +1,54 @@
+// Copyright 2013 Google Inc. All Rights Reserved
+// Author: jarussell@google.com (Jared Russell)
+//
+// Protocol buffers representing camera metadata.
+syntax = "proto2";
+
+package research.katamari;
+
+// TODO(kwc): CameraInformation will be merged with the proto from the 3d scan
+// pipeline.  This adds in id, description, and f_stop.
+
+// CameraInformation contains known configuration fields only, and are
+// not recalculated during camera calibration.  Setting these with
+// meaningful values is optional, but strongly encouraged, since
+// setting them makes it possible to report parameters with meaningful
+// values (such as the focal length) rather than as arbitrary
+// constants.
+message CameraInformation {
+
+  // Named specifiers indicating what type of camera was used for capture.
+  enum CameraType {
+    CANON_REBEL_T2I = 0;
+    CANON_REBEL_T4I = 1;
+    ELPHEL_323 = 2;
+    PTGREY_GRASSHOPPER_2 = 3;
+    MICROSOFT_KINECT = 4;
+    PRIMESENSE_SENSOR = 5;
+    RENDERER = 6;
+    CANON_EOS_5DM2 = 7;
+    CANON_EOS_5DM3 = 8;
+    CANON_EOS_1DX = 9;
+  }
+
+  // Unique identifier for camera for inventory purposes.
+  optional string id = 1;
+
+  // Description of camera, e.g., 'Elphel 323'.  This will likely be identical
+  // for the same camera models but should not be used for indexing.
+  optional string description = 2;
+
+  optional int32 image_width = 3 [default = 1];
+  optional int32 image_height = 4 [default = 1];
+  optional double pixel_width_um = 5 [default = 1.0];
+  optional double pixel_height_um = 6 [default = 1.0];
+  optional double focal_length_mm = 7 [default = 10.0];
+  optional float f_stop = 8;
+
+  optional CameraType camera_type = 9;
+
+  // Number assigned to this camera on the scan station.  This is used to
+  // maintain associativity between captured files and CameraInformation
+  // instances a single scan station.
+  optional int32 camera_number = 10;
+}

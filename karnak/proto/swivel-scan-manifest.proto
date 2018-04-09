@@ -1,0 +1,198 @@
+// Copyright 2012 Google Inc. All Rights Reserved
+// Author: kwc@google.com (Ken Conley)
+//
+// Protocol buffers for storing raw scan metadata.
+
+syntax = "proto2";
+
+package research.katamari;
+
+import "geometry.proto";
+import "camera.proto";
+import "camera_information.proto";
+
+// Approximate data hierarchy:
+//
+// ScanObject
+//  * ScanImageSequence[]
+//    * ImageFormat
+//    * CameraInformation
+//    * CameraPosition
+//    * RegionOfInterest
+//  * ScanStationInfo
+
+// Sequence of image captures from a single camera of an object.
+message ScanImageSequence {
+
+  // Region of interest (ROI) in the camera image.
+  message RegionOfInterest {
+    required uint32 x_offset = 1;
+    required uint32 y_offset = 2;
+    required uint32 width = 3;
+    required uint32 height = 4;
+  }
+
+  // Named mounting positions for camera.
+  enum CameraPosition {
+    // Centered on and co-planar with scan table.
+    FRONT = 0;
+    // Directly above rotation axis.
+    TOP = 1;
+    // Directly below rotation axis.
+    BOTTOM = 2;
+    // Straight on orthographic view.
+    ORTHO = 3;
+    // Depth, position unspecified.
+    DEPTH = 4;
+  }
+
+  enum ImageFormat {
+    JPEG = 0;
+    PNG = 1;
+    ELPHEL_JP4 = 2;
+    DEPTH_PPM = 3;
+  }
+
+  // Table types to help assist processing settings.
+  enum TableType {
+    // White wood turntables, mildly reflective.
+    WHITE_WOOD = 0;
+    // Clear glass (turn)table.
+    GLASS = 1;
+  }
+
+  // Name of the camera.
+  optional string name = 1;
+
+  required ImageFormat image_format = 2;
+
+  // Information about camera hardware.
+  optional CameraInformation camera_information = 3;
+
+  // Mounting position of camera.  There may be multiple ORTHO cameras.
+  optional CameraPosition camera_position = 4;
+
+  // Mounting position is inverted, i.e., camera image is upside down.
+  optional bool camera_inverted = 13;
+
+  // Calibration intrinsics.
+  optional CameraModelIntrinsics intrinsic = 16;
+
+  // Calibration extrinsics.  It is assumed that all ScanImageSequences in a
+  // ScanObject will share the same coordinate system.
+  optional Transform3Proto extrinsic = 17;
+
+  // TODO(kwc): Rename this field to not confuse with rotational angle.
+  // Angular 'height' of camera, where 0 is equivalent to the ortho camera
+  // in front of the object.
+  // For front cameras above the table, use 1 to 90.
+  // For front cameras below the table, use -1 to -90.
+  // This is an approximate, uncalibrated value.
+  optional int32 angle_degrees = 6;
+
+  // TODO(kwc): Replace yaw angle representation with a
+  //            repeated int32 rotation_angles_degrees field.
+  // Rotational/yaw angle of object in filenames[0].  Angles are specified with
+  // counter-clockwise rotation.
+  optional int32 starting_rotation_angle_degrees = 14;
+
+  // Region of interest containing the scanned object.
+  optional RegionOfInterest object_roi = 7;
+
+  // Region of interest containing the MacBeth chart.
+  optional RegionOfInterest macbeth_roi = 8 [deprecated=true];
+
+  // Category of table.
+  optional TableType table_type = 5;
+
+  // Angular increment of scan turntable captures.
+  optional uint32 angular_increment_degrees = 9 [default = 5];
+
+  // Name of filename with empty image.
+  optional string empty_filename = 10;
+
+  // Filenames of images captured in this sequence.
+  repeated string filenames = 11;
+
+  // Segmentation mask priors for this sequence.  Valid lengths are 0 (no masks
+  // available) or the number of captures (the n-th mask corresponds to the
+  // n-th image filename).  Mask images must be the same resolution as the
+  // captures and are single channel, where absolute black represents
+  // background, absolute white represents foreground, and grays indicate
+  // uncertainty between the two extremes.
+  repeated string segmentation_mask_filenames = 18;
+
+  // Timestamps of files in this sequence.  Seconds since epoch.
+  // If specified, must match 1-to-1 with filenames.
+  repeated double timestamps = 12;
+
+  // Tags containing keywords and directives that influence processing of this
+  // sequence.
+  repeated string processing_tags = 15;
+}
+
+// Information about the scan station used to capture images.
+message ScanStationInfo {
+
+  required string id = 1;
+  optional string operator_id = 2;
+
+  // Identifier for model of scan station.
+  optional string model_id = 3;
+
+  // String representation of the raw, full configuration.
+  // This is currently encoded using YAML.
+  optional string raw_config = 4;
+
+  // Opaque name of the camera configuration.
+  optional string camera_config_name = 5;
+
+  // Opaque name of the lighting configuration.
+  optional string lighting_config_name = 6;
+
+  // The current status of the scanner.
+  // TODO(katamari): Make sure that this TURNED_DOWN state propogates to stratus.
+  enum StationStatus{
+    TURNED_DOWN = 0;
+    DEVELOPMENT = 1;
+    TEST = 2;
+    PRODUCTION = 3;
+  }
+
+  // Keep track of the current status of the scanner,
+  // typically set by the technicians on the scan floor.
+  optional StationStatus status = 7;
+}
+
+// Capture of a single object.
+message ScanObject {
+
+  // Katamari ID of object.
+  optional string katamari_id = 1;
+
+  optional string description = 2;
+
+  // Seconds since epoch.
+  optional double capture_time_start = 3;
+  optional double capture_time_end = 4;
+
+  optional ScanStationInfo scan_station = 5;
+
+  repeated ScanImageSequence image_sequences = 6;
+
+  // TODO(kwc): link to documentation on known/useful object_tags.
+
+  // Tags/labels for the object, such as 'shoe-left'.
+  // These inform processing parameters.
+  repeated string object_tags = 7;
+
+  // Record of the latest calibration scans taken on this scanner for each
+  // type (color, daily).
+  optional string color_calibration_scan_name = 8;
+  optional double color_calibration_timestamp = 9;
+  optional string daily_calibration_scan_name = 10;
+  optional double daily_calibration_timestamp = 11;
+
+  // Opaque JSON data to carry through to the viewer 2D scene file.
+  optional string scene2d_options_json = 12 [deprecated=true];
+}

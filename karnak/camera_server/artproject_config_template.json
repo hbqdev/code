@@ -1,0 +1,35 @@
+{"camera_and_setting": [
+  {
+    "body": {
+      "make": "Canon",
+      "model": "EOS 7D"
+    },
+    "settings": {
+      "iso": "ISO_100",
+      "exposure": "E0S4",
+      "white_balance": "TUNGSTEN",
+      "aperture": "F11",
+      "image_quality": "HIGH_QUALITY",
+      "use_center_focus": true,
+      "liveview_rotation": 270,
+      "auto_lighting_optimizer": "DISABLE",
+      "drive_mode": "SINGLE_SHOT",
+      "focus_mode": "ONE_SHOT"
+    }
+  },
+  {
+    "body": {
+      "make": "Canon",
+      "model": "EOS 5D Mark III"
+    },
+    "settings": {
+      "iso": "ISO_125",
+      "exposure": "E1_20",
+      "image_quality": "HIGH_QUALITY",
+      "liveview_rotation": 180,
+      "drive_mode": "SINGLE_SHOT",
+      "focus_mode": "ONE_SHOT"
+    }
+  }
+]}
+

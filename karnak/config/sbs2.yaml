@@ -1,0 +1,126 @@
+base_directory: static
+scratch_directory: tmp
+station:
+  name: sbs2
+  touchscreen: false
+  model: medium white rig
+  capture_directory: capture
+  calibration_directory: calibration
+  daily_directory: daily
+  test_directory: test
+  has_bottom_shot: false
+  top_shots: 4
+  front_shots: 72
+  ortho_shots: 72
+  has_plank: false
+resources:
+ - type: PrimesenseCamera
+   name: depth_camera
+   model: RD1.09
+   position: DEPTH
+   camera_number: 40
+   rotate_degrees: 0
+   inventory_id: depth0
+   server_url: localhost:8093
+ - type: ArtProjectCamera
+   name: ortho_camera
+   model: Canon 5DM3
+   position: ORTHO
+   camera_number: 10
+   inventory_id: NO INVENTORY ID
+   guid: bf1296aa3c04fd1
+   focal_length_mm: 35
+   inverted: true
+   aperture: 18
+   shutterspeed: 1/5
+   iso: 100
+   server_url: localhost:8090
+ - type: ArtProjectCamera
+   name: front_camera
+   model: Canon 5DM3
+   position: FRONT
+   camera_number: 20
+   angle_degrees: 15
+   inventory_id: NO INVENTORY ID
+   guid: 8eaca33d529c4a959c98a0f731ef9228
+   focal_length_mm: 35
+   aperture: 18
+   shutterspeed: 1/5
+   iso: 100
+   server_url: localhost:8091
+ - type: ArtProjectCamera
+   name: top_camera
+   model: Canon 5DM3
+   position: TOP
+   camera_number: 30
+   inventory_id: NO INVENTORY ID
+   guid: a959fb5a7c014a789e0bb715697f4757
+   focal_length_mm: 35
+   aperture: 18
+   shutterspeed: 1/5
+   iso: 100
+   server_url: localhost:8092
+ - type: WebCamera
+   name: builtin_camera
+   position: PREVIEW
+   camera_number: 100
+   inventory_id: NO INVENTORY ID
+   port: /dev/v4l/by-id/usb-046d_0823_9ABA64A0-video-index0
+ - type: ImsStepper
+   name: turntable
+   address: 192.168.33.1
+   port: 503
+   steps: 1217067
+   delay_per_step: 0.00005
+   init_cmds:
+     - hc 0
+     - rc 85
+     - p 0
+     - a 80000
+     - d 80000
+     - vm 500000
+ - type: LightingController
+   name: lighting
+   handle: /dev/dmx0
+   front_lights: [1, 2, 3]
+   top_lights: [1, 2, 3]
+   preview_lights: [2, 3]
+   bottom_lights: [4]
+ - type: Crosshair
+   name: crosshair
+   address: 192.168.101.2
+ - type: Scanner2d
+   name: scan2d
+   scan_segments: 72
+   table_type: WHITE_WOOD
+   capture_alternate_lighting: false
+   resources:
+    - depth_camera
+    - front_camera
+    - top_camera
+    - ortho_camera
+    - builtin_camera
+    - turntable
+    - lighting
+    - crosshair
+   starting_rotation_angle: 90
+# - type: OrthoTable
+#   name: ortho_table
+#   table_type: GLASS
+#   resources:
+#    - bottom_camera
+#    - scan2d
+credentials:
+ - type: ServiceAccount
+   service_account_email: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn@developer.gserviceaccount.com
+   service_account_name: 682015002700-5gmoofr8s80voejnr8ld9h2nns2gvfcn.apps.googleusercontent.com
+   private_key_file: keys/0d972c7184df27f390eb32ce3b3e68ec4ce5d9b9-privatekey.p12
+   name: service
+storage:
+ - type: BigStore
+   bucket: objects3d-scans-sb
+   name: bigstore
+packer:
+  type: Tarball
+  name: tarball
+  output_directory: static/tarballs

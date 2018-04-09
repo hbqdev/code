@@ -1,0 +1,211 @@
+// Messages to describe the data gathered by the 3d scanner during a
+// scan, and sufficient metadata and configuration data in order to
+// interpret that data.
+//
+// These are the primary contents of a manifest, but a manifest is one
+// level higher in that it contains information about the scanner
+// configuration and other things not directly related to the data
+// gathered during a particular scan.
+
+syntax = "proto2";
+
+package research.katamari;
+
+import "geometry.proto";
+
+// Contains description of a mesh "depth map" captured by a stereo pair.
+message Scan3dMeshInfo {
+  // Note: Field 1 is reserved for a short name string, which we would
+  // need if we support multiple mesh outputs per view in the future.
+
+  // Location of the mesh file and mesh metadata.
+  required string filename = 2;
+  optional int32 vertex_count = 3;
+  optional int32 triangle_count = 4;
+  // TODO(jimbruce): Include file format information here?
+
+  // True if the object and scanhead transforms have already been
+  // applied to the mesh vertices.  This is true for scans as of 2013
+  // Q2, but it is something we'd like to move away from eventually.
+  // TODO(jimbruce): Remove this field when no longer needed to
+  // support legacy scan data.
+  optional bool transform_applied = 16;
+}
+
+// Contains description of data captured by a camera.
+message ImageCapture {
+  // Short identifier of the camera that captured this data.  This can
+  // be used to reference cameras in the camera calibration structure
+  // and the ScannerResources/ScanHeadResources tree.
+  required string camera_id = 1;
+  // The type of capture this sequence represents.  Currently only
+  // "diffuse_texture" is understood by post-processing, but the
+  // scanner already supports additional types such as multiple
+  // single-light-at-a-time captures.  This will be extensible via
+  // configuration so we use a string rather than an enum.
+  required string capture_type = 2;
+  // List of image captures filenames.  The order and count should
+  // match what is expected for this capture type.
+  repeated string image_filenames = 3;
+  // TODO(jimbruce): Add timestamps once we have a reasonably accurate
+  // way of gathering them.
+
+  // Images of an empty rig applicable to this view and stop.  For a (mostly)
+  // symmetric turntable and a static scanhead, the same empty filename could
+  // by referenced across multiple Stops.
+  // Empty images are not always available for every scanner or scan, so this
+  // list may be empty.  Valid lengths are zero (no empty images), one (one
+  // empty image for all image_filenames) or equal to the length of
+  // image_filenames (one empty image for each photo in the sequence).
+  repeated string empty_image_filenames = 4;
+}
+
+// Contains data taken by one scanhead at a particular stop.  While a
+// typical view would consist of a 3d mesh and one or more texture
+// camera images, most fields are optional and can vary with
+// configuration.  Thus clients should always verify that data is
+// present and handle missing fields gracefully.
+message Scan3dView {
+  // A short identifier for this view suitable for lookup, printing,
+  // and reporting (example: "s000-h1").  This will be unique for the
+  // scan.  While this is normally built out of the stop id and
+  // scanhead id, clients should not assume that.
+  required string view_id = 1;
+
+  // Which scanhead (as found in ScannerResources/ScanHeadResources)
+  // captured this data.  This is used for mesh alignment and for
+  // grounding photo views to meshes.
+  required string scanhead_id = 2;
+
+  // If the scanhead moved relative to the scanner frame in any way,
+  // that transform goes here.  If not present, an identity transform
+  // should be assumed.  Note that this should not try to correct for
+  // turntable/object motion, which is handled by the per-stop
+  // object_transform.
+  optional Transform3Proto scanhead_transform = 3;
+
+  // Data gathered in this view.
+  optional Scan3dMeshInfo mesh = 4;
+  repeated ImageCapture images = 5;
+}
+
+// Contains data for one turntable position at a specific time (which
+// we call a stop).
+message Scan3dStop {
+  // Individual views taken by one ore more scanheads at this stop.
+  // Each view corresponds to a capture by a scanhead.  See Scan3dView
+  // for the exact data that can be gathered.
+  repeated Scan3dView views = 1;
+
+  // This captures any object motion for this turntable stop.
+  // Typically this will be from a turntable, but eventually could be
+  // any device that moves the object relative to the scanner frame.
+  // If this field is not present, an identity transform should be
+  // assumed.
+  optional Transform3Proto object_transform = 3;
+}
+
+// Scan3dViewTransform represents an "overriding" transform for a given view
+// that has been measured from data.
+// This proto is currently not used in the any of the other protos in
+// this file. However, the proto is included in protos outside this file
+// and is used to refer to the transfrom tied to a view_id which is
+// defined in Scan3dView above.
+message Scan3dViewTransform {
+  // Identifier matching the Scan3dView view_id from the input scan.
+  required string view_id = 1;
+  // Transform to apply in place of the Scan3dStop and Scan3dView
+  // transforms.  These are based on optimization using the scan data,
+  // so should be more accurate than the Scan3dProto transforms which
+  // are based on priors only.
+  required Transform3Proto transform = 2;
+}
+
+// Scan3dHeader describes metadata about the scan that isn't directly
+// related to the data itself.
+message Scan3dHeader {
+  // Unique scan name as generated by the scanner.
+  // example: 20130130-15s4528-sbx02-5HMci7SQAsl-3d
+  required string scan_id = 1;
+  // Name of the scanner that took the scan, such as "sbx02".
+  required string scanner_name = 2;
+  // Katamari ID for the object that was scanned.
+  optional string katamari_id = 3;
+  // Start and end time codes for the scan, in unix time (seconds
+  // since the epoch).  These are optional because they can't always
+  // be populated accurately for legacy scans.
+  optional int64 scan_start_time = 4;
+  optional int64 scan_end_time = 5;
+}
+
+// ScanHeadResources describes a specific scanning head by listing the
+// names of the components that make up that scanhead.
+//
+// All of the ids can be cross referenced with data found
+// within Scan3dViews, and camera ids can be matched with cameras in
+// MultiCameraCalibration files.
+//
+// Note: Our software allows for sharing resources, such as cameras,
+// so this can't be inferred unambiguously.  In the current system a
+// scanhead consists of one projector, two geometry cameras, and zero
+// or more texture cameras.
+message ScanHeadResources {
+  // A short identifier to refer to this scanhead.
+  required string scanhead_id = 1;
+  // The projector used for displaying patterns for this scanhead.
+  required string projector_id = 2;
+  // The cameras to be used with this scanhead.
+  repeated string camera_ids = 3;
+}
+
+// ScannerResourceConfiguration describes the resource usage and
+// overall topology of the scanner, in some particular (possibly
+// named) configuration.
+message ScannerResourceConfiguration {
+  // Optional short identifier to refer to this configuration if
+  // multiple configurations exist.  A scan will only contain one of
+  // configuration, but the scanner itself may be capable of different
+  // layouts, in which case this will identify which one was used.
+  optional string configuration_id = 1;
+  // List of defined scanheads on the scanner in this configuration.
+  repeated ScanHeadResources scanhead_resources = 2;
+}
+
+// For a given calibration type, Scan3dCalibrationTypeInfo contains
+// the necessary information to either read the calibration file or
+// find the correct calibration in a database.  The id and timestamp
+// can also be used to verify that a given calibration is applicable.
+message Scan3dCalibrationTypeInfo {
+  optional string calibration_filename = 1;
+  optional string calibration_scan_id = 2;
+  optional int64 calibration_timestamp = 3;
+
+  // TODO(jimbruce): Optional fields to include the calibration inline
+  // probably make sense.  Processing code needs to be finalized to
+  // make the utility of this clearer however.
+  // optional MultiCameraCalibration = 3;
+}
+
+// Container for all calibration information available for the scanner.
+message Scan3dCalibrationInfo {
+  optional Scan3dCalibrationTypeInfo geometry = 1;
+  optional Scan3dCalibrationTypeInfo color = 2;
+}
+
+// Scan3dProto is the top-level data definition for a 3d scan.  It
+// should be expected that this is passed around widely in code, saved
+// to disk long-term, and stored in workflow, thus an appropriate
+// level of compatibility should be maintained.
+message Scan3dProto {
+  // A short header for this scan.
+  required Scan3dHeader header = 1;
+
+  // The per-stop data for the scan.  These are the primary contents/data.
+  repeated Scan3dStop stops = 2;
+
+  // Additional information about the scanner and setup to help
+  // interpreting the per-stop data.
+  required ScannerResourceConfiguration scanner_resources = 3;
+  optional Scan3dCalibrationInfo calibration = 4;
+  // TODO(jimbruce): Add image capture type definitions/parameters.
+}

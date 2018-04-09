@@ -1,0 +1,6 @@
+<body>
+ <div t:render="toc" />  <hr/>
+ <div t:render="help" /> <hr/>
+ <div t:render="stuff" /><hr/>
+</body>
+</html>

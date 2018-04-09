@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+    <link rel="stylesheet" href="css/style.css" />  
+    <script type="text/javascript" src="js/socketed.js"></script>
+    
+    <script src="js/jquery.js"></script>
+
+    <script type="text/javascript">
+         var logpane = null;
+
+         // Spawn the sockets and the listeners.
+         window.onload = function() {
+            logpane = document.getElementById('log');
+	    for (i=1;i<10;i++){
+	      spawn_socket('172.17.26.' + i);
+	    }	
+	 }
+
+	function spawn_socket(host) {
+            var wsuri;
+	    var sock;
+	    var tag;
+
+            wsuri = "ws://" + host +":9000";
+	    tag = host.replace(/\./g, '_');
+
+            if ("WebSocket" in window) {
+               sock = new WebSocket(wsuri);
+            } else if ("MozWebSocket" in window) {
+               sock = new MozWebSocket(wsuri);
+            } else {
+               log("Browser does not support WebSocket!");
+            }
+
+      	    // handle the socket callbacks
+            if (sock) {
+               sock.onopen = function() {
+                  log("Connected to " + wsuri);
+               }
+
+               sock.onclose = function(e) {
+                  log("Connection closed (wasClean = " + e.wasClean + ", code = " + e.code + ", reason = '" + e.reason + "')");
+                  sock = null;
+               }
+
+               sock.onmessage = function(e) {
+		 content = JSON.parse(e.data);
+		 meta = content['msgmetadata'];
+		
+		// TODO(arshan): connect to status and logging output from karnak 
+		 log( "["+ meta['scanner_name'] + ":"  + host + "] " + meta["camera_name"] + " : " + meta['capture_index'] );
+		// camera_name
+		// scanner_name
+		// capture_segments
+		// capture_index
+		 $('#'+ tag + '-' +meta['camera_name']).attr('width', '240');
+		 $('#'+ tag + '-' +meta['camera_name']).attr('src', 'data:image/jpg;base64,'+content['msgbase64']);
+               }
+            }
+	};		
+
+      // Handle the log pane hide/show.
+      $('#log_toggle').click(
+                 function(){
+			if ($('#log_toggle').html() == 'hide logs'){
+			$('#log').hide(100, function(){
+			 $('#log_toggle').html('show logs')
+			}); }
+			else {
+                         $('#log').show(100, function(){
+                         $('#log_toggle').html('hide logs') });
+			}
+		}
+       );
+      
+
+       function broadcast() {
+           var msg = document.getElementById('message').value;
+            if (sock) {
+               sock.send(msg);
+               log("Sent: " + msg);
+            } else {
+               log("Not connected.");
+            }
+       };
+
+       function log(m) {
+           logpane.innerHTML += m + '\n';
+           logpane.scrollTop = logpane.scrollHeight;
+       };
+      </script>
+   </head>
+   <body>
+<table>
+<tr><td><a href=http://172.17.26.1:8080><b>SBS1</b></a></td><td><a href=http://172.17.26.2:8080><b>SBS2</b></a></td><td><a href=http://172.17.26.3:8080><b>SBS3</b></a></td><td><a href=http://172.17.26.4:8080><b>SBS4</b></a></td><td><a href=http://172.17.26.5:8080><b>SBS5</b></a></td></tr>
+<tr><td><img id='172_17_26_1-front_camera' src='n.jpg' /></td><td><img id='172_17_26_2-front_camera' src='n.jpg' /></td><td><img id='172_17_26_3-front_camera' src='n.jpg' /></td><td><img id='172_17_26_4-front_camera' src='n.jpg' /></td><td><img id='172_17_26_5-front_camera' src='n.jpg' /></td></tr>
+<tr><td><img id='172_17_26_1-ortho_camera' src='n.jpg' /></td><td><img id='172_17_26_2-ortho_camera' src='n.jpg' /></td><td><img id='172_17_26_3-ortho_camera' src='n.jpg' /></td><td><img id='172_17_26_4-ortho_camera' src='n.jpg' /></td><td><img id='172_17_26_5-ortho_camera' src='n.jpg'  /></td></tr>
+<tr><td><img id='172_17_26_1-top_camera' src='n.jpg' /></td><td><img id='172_17_26_2-top_camera' src='n.jpg' /></td><td><img id='172_17_26_3-top_camera' src='n.jpg' /></td><td><img id='172_17_26_4-top_camera' src='n.jpg' /></td><td><img id='172_17_26_5-top_camera' src='n.jpg' /></td></tr>
+
+<tr><td><a href=http://172.17.26.6:8080><b>SBS6</b></a></td><td><a href=http://172.17.26.7:8080><b>SBS7</b></a></td><td><a href=http://172.17.26.8:8080><b>SBS8</b></a></td><td><a href=http://172.17.26.9:8080><b>SBS9</b></a></td></tr>
+<tr><td><img id='172_17_26_6-front_camera' src='n.jpg' /></td><td><img id='172_17_26_7-front_camera' src='n.jpg' /></td><td><img id='172_17_26_8-front_camera' src='n.jpg' /></td><td><img id='172_17_26_9-front_camera' src='n.jpg' /></td></tr>
+<tr><td><img id='172_17_26_6-ortho_camera' src='n.jpg' /></td><td><img id='172_17_26_7-ortho_camera' src='n.jpg' /></td><td><img id='172_17_26_8-ortho_camera' src='n.jpg' /></td><td><img id='172_17_26_9-ortho_camera' src='n.jpg' /></td></tr>
+<tr><td><img id='172_17_26_6-top_camera' src='n.jpg' /></td><td><img id='172_17_26_7-top_camera' src='n.jpg' /></td><td><img id='172_17_26_8-top_camera' src='n.jpg' /></td><td><img id='172_17_26_9-top_camera' src='n.jpg' /></td></tr>
+</table>
+
+      <noscript>You must enable JavaScript</noscript>
+      <button id="log_toggle">hide logs</button>
+      <pre id="log" style="height: 50em; overflow-y: scroll; background-color: #aaa;"></pre>
+   </body>
+</html>
+

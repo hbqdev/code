@@ -1,0 +1,71 @@
+// Configuration for the depth_image_mesher class.
+
+syntax = "proto2";
+
+package research.katamari;
+
+import "swivel-scan-manifest.proto";
+
+message DepthImageMesherOptions {
+  // The depth of one integer unit (least significant bit) in the depth image in
+  // meters.
+  optional float depth_lsb_meters = 1 [default = 0.0001];
+
+  // The threshold filter will remove depth pixels with a value smaller than
+  // threshold_min_depth or larger than threshold_max_depth.  Units are LSBs.
+  optional int32 threshold_min_depth = 2 [default = 3072];
+  optional int32 threshold_max_depth = 3 [default = 12288];
+
+  // The following two parameters control the bilateral filter. The result of a
+  // bilateral filter is a weighted average of neighboring pixels. The weight of
+  // a neighboring pixel is based on its distance from the center pixel
+  // (controlled by bilateral_filter_coord_sigma), and its difference from the
+  // center pixel (controlled by bilateral_filter_value_sigma). If
+  // bilateral_filter_coord_sigma is small then distance pixels will have a
+  // larger weight. If bilateral_filter_value_sigma is small pixels with
+  // different depth values will have a larger weight.
+
+  // Units for bilateral_filter_coord_sigma are in pixels.
+  optional float bilateral_filter_coord_sigma = 4 [default = 1.0];
+
+  // Units for bilateral_filter_value_sigma are in depth image LSBs.
+  optional float bilateral_filter_value_sigma = 5 [default = 0.004];
+
+  // This parameter controls the determination of what points are likely to
+  // constitute vertices of the same face (in the same units as the input world
+  // coordinate points).  This is L2 distance.
+  optional float max_face_span_distance = 6 [default = 0.005];
+
+  // Minimum (per pixel) depth between empty and object scans for which a
+  // pixel is considered part of the background.  Units are depth LSBs.
+  optional int32 background_distance_threshold = 7 [default = 200];
+
+  // Minimum difference in depth between adjacent pixels to consider an object
+  // a single component for connected components analysis (which is used to
+  // reject spurious returns that are not 4-connected to the object of
+  // interest).  Units are depth LSBs.
+  optional int32 connected_components_threshold = 8 [default = 4096];
+}
+
+// Inputs to DepthImageMesher
+message DepthImageMesherRequest {
+  // Options.
+  optional DepthImageMesherOptions options = 1;
+
+  // Directory with the captured imagery.
+  required string capture_directory = 2;
+
+  // Manifest for the calibration scan.  Should be from a depth camera
+  // (camera_position == DEPTH), and intrinsics must be present.  empty_filename
+  // is optional; if present, background subtraction will run.  It is assumed
+  // that all images in the sequence are the same size.
+  required ScanImageSequence depth_capture_sequence = 3;
+
+  // Names of the mesh files.  The number of entries must match the number of
+  // filenames in the ScanImageSequence.
+  repeated string mesh_filenames = 4;
+
+  // Directory where the meshes will be put.  Will use the capture directory if
+  // this field is absent.
+  optional string output_directory = 5;
+}
