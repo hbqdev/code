@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{graphicx} % for figures
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\begin{document}
+
+\title{Homework 7 - Physics 240\\
+		Wilberforce Pendulum}
+\author{Tin Tran}
+
+\maketitle
+
+\section{Introduction}
+This is an excercise to calculate the equation of motions $z(t)$ and $\theta(t)$ of the Wilberforce Pendulum using the forth-order Runge Kutta method.\\
+\indent The Lagrangian for this system is : \\
+\begin{center} $L = \frac{1}{2}m(\frac{dz}{dt})^2 + \frac{1}{2}I(\frac{d\theta}{dt})^2 - \frac{1}{2}kz^2 - \frac{1}{2}\delta\theta^2 - \frac{1}{2}\epsilon z\theta$\\
+\end{center}
+From this, the equations of motion are:
+\begin{center}
+$mz^" + kz + \epsilon z\theta = 0$\\
+$I\theta^" + \delta\theta + \frac{1}{2}\epsilon z = 0$
+\end{center}
+Now we apply the Fourth-order Runge Kutta method to approximate $z(t)$ and $\theta(t)$
+
+\noindent ** I couldn't not finish the homework in time, I have most of the code done, but I didn't have enough time to fix all the bugs, because the graph doesn't show anything, and for some reason my code doesn't update the values of z and theta if the initial condition is 0 and 0.
+
+\end{document}

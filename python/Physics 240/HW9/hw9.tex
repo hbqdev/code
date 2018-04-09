@@ -1,0 +1,22 @@
+% Homework 9.tex 
+
+\documentclass{article}
+\usepackage{graphicx} % for figures
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\begin{document}
+
+\title{Physics 240 - Project report\\
+		Roche surfaces}
+\author{Tin Tran}
+
+\maketitle
+
+\section{Introduction}
+For my project I plan on doing the Roche surfaces. Since I just picked this project recently, I have not made much progress regardless the actual work. But I do have a layout of what I will do for this project.\\
+The effect grativational potential of two bodies orbiting each other in the x-y plane is given by:\\
+V(x,y) = -G$\frac{M_1}{r_1}$ - -G$\frac{M_2}{r_2}$ - $\omega^2\frac{x^2+y^2}{2}$\\
+This is a co-rotating coordinate system. M$_1$ is at position a on the x-axis and M$_2$ is locate at position -b on the x-axis. The origin is the center of mass of the system and r$_1$ = $\sqrt{(x-a)^2+y^2}$ and r$_2$ = $\sqrt{(x+b)^2+y^2}$\\
+The equipotential surfaces of the binary systems are called Roche lobes. My plan is to write up the solution in python to solve for and plot a set of Roche lobes for any binary configuration. The code should contain some set values as well as the ability to take user inputs for any kind of binary configurations and equipotential surfaces.
+\end{document}

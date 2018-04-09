@@ -1,0 +1,36 @@
+% Homework 10.tex 
+
+\documentclass{article}
+\usepackage{graphicx} % for figures
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\begin{document}
+
+\title{Homework 9 - Physics 240\\
+		Gauss and Kirchhoff}
+\author{Tin Tran}
+
+\maketitle
+
+\section{Introduction}
+The purpose of this excerise to practice Gaussian elimination method to solve a system of linear of equation, in this case, the system of equations is constructed by applying Kirchohff's laws of current to the circut given in the homework. The system equation I come up with is :
+\begin{center}
+E$_1$ - I$_1$R$_1$ - I$_2$R$_3$ - E$_2$ - I$_1$R$_2$ = 0\\
+-I$_3$R$_4$ - E$_3$ - I$_3$R$_5$ + E$_2$ + I$_2$R$_3$ = 0\\
+I$_1$ - I$_2$ - I$_3$ = 0
+\end{center}
+Applying the values for R$_1$ = R$_2$ = 1, R$_3$ = R$_4$ = 2, R$_5$ = 5, E$_1$ = 2, E$_3$ = 5, and E$_2$ = 20 I get the following equations
+\begin{center}
+I$_1$ + I$_2$ + 0 = -9\\
+7I$_3$ - 2I$_2$ = 15\\
+I$_1$ - I$_2$ - I$_3$ = 0
+\end{center}
+Putting the matrix form of this system of equation into my program and I get
+\begin{center}
+I$_1$ = -4.125\\
+I$_2$ = -4.875\\
+I$_3$ = 0.75\\
+\end{center}
+The answers are verified with numpy.linalg, direct substitution, and reduced row echelon form methods, all of which gave the same answers.
+\end{document}
