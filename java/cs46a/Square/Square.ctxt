@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=side
+comment0.target=Square(double)
+comment0.text=\nConstructs\ a\ Square\n\n
+comment1.target=double\ getArea()
+comment2.target=double\ getPerimeter()
+comment3.target=double\ getDiagonalLength()
+numComments=4

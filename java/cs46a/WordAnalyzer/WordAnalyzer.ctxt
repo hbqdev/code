@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=aWord
+comment0.target=WordAnalyzer(String)
+comment0.text=\nConstructs\ an\ analyzer\ for\ a\ given\ word.\n@param\ aWord\ the\ word\ to\ be\ analyzed\ \n\n
+comment1.target=char\ firstRepeatedCharacter()
+comment1.text=\nGets\ the\ first\ repeated\ character.\ A\ character\ is\ <i>repeated</i>\nif\ it\ occurs\ at\ least\ twice\ in\ adjacent\ positions.\ For\ example,\n'l'\ is\ repeated\ in\ "hollow",\ but\ 'o'\ is\ not.\ \n@return\ the\ first\ repeated\ character,\ or\ 0\ if\ none\ found\n\n
+comment2.target=char\ firstMultipleCharacter()
+comment2.text=\nGets\ the\ first\ multiply\ occuring\ character.\ A\ character\ is\ <i>multiple</i>\nif\ it\ occurs\ at\ least\ twice\ in\ the\ word,\ not\ necessarily\ in\ adjacent\ positions.\ \nFor\ example,\ both\ 'o'\ and\ 'l'\ are\ multiple\ in\ "hollow",\ but\ 'h'\ is\ not.\ \n@return\ the\ first\ repeated\ character,\ or\ 0\ if\ none\ found\n\n
+comment3.params=c\ pos
+comment3.target=int\ find(char,\ int)
+comment4.target=int\ countRepeatedCharacters()
+comment4.text=\nCounts\ the\ groups\ of\ repeated\ characters.\ For\ example,\ "mississippi\!\!\!"\ has\ \nfour\ such\ groups\:\ ss,\ ss,\ pp\ and\ \!\!\!.\n@return\ the\ number\ of\ repeated\ character\ groups\ \n\n
+numComments=5

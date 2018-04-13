@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=rate
+comment0.target=SavingsAccount(double)
+comment0.text=\nConstructs\ a\ bank\ account\ with\ a\ given\ interest\ rate.\n@param\ rate\ the\ interest\ rate\n\n
+comment1.target=void\ addInterest()
+comment1.text=\nAdds\ the\ earned\ interest\ to\ the\ account\ balance.\n\n
+numComments=2

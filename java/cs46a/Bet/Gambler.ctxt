@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=startingFunds
+comment0.target=Gambler(double)
+comment0.text=\nConstructs\ a\ gambler\ with\ a\ set\ amount\ of\ starting\ funds.\n@param\ startingFunds\ the\ amount\ of\ money\ he\ starts\ with.\n\n
+comment1.params=wager
+comment1.target=void\ bet(double)
+comment1.text=\nMakes\ the\ gambler\ take\ a\ bet\ at\ even\ probability\ to\ win\ or\ lose.\n@param\ wager\ the\ amount\ of\ the\ bet\n\n
+comment2.target=double\ getFunds()
+comment2.text=\nGets\ the\ funds\ remaining\ for\ the\ gambler.\n@return\ funds\ remaining\n\n
+numComments=3

@@ -1,0 +1,8 @@
+import java.util.*;
+public class euler1 {
+	public void main(String[] args){
+		
+	}
+	System.out.println("Hello World");
+
+}

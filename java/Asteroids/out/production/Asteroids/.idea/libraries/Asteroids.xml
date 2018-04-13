@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Asteroids">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Asteroids.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

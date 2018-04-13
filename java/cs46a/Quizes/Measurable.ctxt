@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.target=double\ getMeasure()
+comment0.text=\nComputes\ the\ measure\ of\ the\ object.\n@return\ the\ measure\n\n
+numComments=1

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Genie()
+comment0.text=\nConstructs\ a\ genie,\ who\ will\ grant\ 3\ wishes.\n\n
+comment1.params=wish
+comment1.target=void\ grant(String)
+comment1.text=\nThe\ genie\ accepts\ or\ rejects\ your\ wish.\nIf\ you\ have\ not\ yet\ used\ 3\ wishes,\ he\ claims\ to\ grant\ it,\ otherwise\nhe\ threatens\ you.\n@param\ wish\ Your\ wish\n\n
+numComments=2

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=values
+comment0.target=int\ sameEnds(int[])
+comment0.text=\nComputes\ the\ length\ of\ the\ ends\ of\ sequence\ (if\ the\ two\ ends\ are\ the\ same).\n@param\ values\ an\ array\ of\ integer\ values\n@return\ the\ length\ of\ the\ same\ ends\ in\ values\n\n
+numComments=1

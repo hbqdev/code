@@ -1,0 +1,10 @@
+1: public class HelloPrinter
+2: {
+3:    public static void main(String[] args)
+4:    {
+5:       // Display a greeting in the console window
+6: 
+7:       System.out.println("Hello, World!");
+8:    }
+9: }
+

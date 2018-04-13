@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=FileCounter()
+comment0.text=\nConstructs\ a\ FileCounter\ object.\n\n
+comment1.params=in
+comment1.target=void\ read(Scanner)
+comment1.text=\nProcesses\ an\ input\ source\ and\ adds\ its\ character,\ word,\ and\ line\ncounts\ to\ this\ counter.\n@param\ in\ the\ scanner\ to\ process\n\n
+comment2.target=int\ getWordCount()
+comment2.text=\nGets\ the\ number\ of\ words\ in\ this\ counter.\n@return\ the\ number\ of\ words\n\n
+comment3.target=int\ getLineCount()
+comment3.text=\nGets\ the\ number\ of\ lines\ in\ this\ counter.\n@return\ the\ number\ of\ lines\n\n
+comment4.target=int\ getCharacterCount()
+comment4.text=\nGets\ the\ number\ of\ characters\ in\ this\ counter.\n@return\ the\ number\ of\ characters\n\n
+numComments=5

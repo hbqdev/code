@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=text
+comment0.target=Sentence(String)
+comment0.text=\nConstructs\ a\ sentence.\n@param\ text\ the\ text\ of\ the\ sentence.\ \n\n
+comment1.params=i
+comment1.target=String\ getWord(int)
+comment1.text=\nReturns\ a\ word\ in\ this\ sentence.\n@param\ the\ index\ of\ the\ word\ \n@return\ the\ ith\ word\ or\ an\ empty\ string\ if\ i\ is\ <\ 0\nor\ >\=\ the\ number\ of\ words\ in\ this\ sentence\n\n
+comment2.target=String\ toString()
+comment3.target=double\ getMeasure()
+numComments=4

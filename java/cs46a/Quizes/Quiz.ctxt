@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=score\ grade
+comment0.target=Quiz(double,\ String)
+comment0.text=\nConstruct\ a\ quiz\n@para\ \n\n
+comment1.target=double\ getScore()
+comment2.target=String\ getGrade()
+comment3.target=double\ getMeasure()
+numComments=4

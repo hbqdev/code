@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=ivel\ ang
+comment0.target=CannonballComponent(double,\ double)
+comment0.text=\nConstructs\ a\ component\ that\ paints\ the\ flight\ of\ a\ cannonball\ \n@param\ ivel\ the\ initial\ velocity\ of\ the\ ball\n@param\ ang\ the\ angle\ at\ which\ the\ cannonball\ was\ launched\n\n
+comment1.params=g
+comment1.target=void\ paintComponent(Graphics)
+numComments=2

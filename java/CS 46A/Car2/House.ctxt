@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=x\ y\ width\ height
+comment0.target=House(int,\ int,\ int,\ int)
+comment0.text=\nConstructor\ to\ initiate\ the\ bottom\ left\ corner\n@param\ x\ the\ left\ corner\ coordinate\n@param\ y\ the\ bottom\ corner\ coordinate\n@param\ width\ the\ width\n@param\ height\ the\ height\n\n
+comment1.params=g2
+comment1.target=void\ draw(Graphics2D)
+comment1.text=\nDraws\ the\ house\n@param\ g2\ the\ graphics\ context\n\n
+numComments=2

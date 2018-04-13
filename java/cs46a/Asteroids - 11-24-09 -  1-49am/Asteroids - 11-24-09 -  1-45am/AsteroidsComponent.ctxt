@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=drawableList
+comment0.target=AsteroidsComponent(ArrayList<Drawable>)
+comment1.params=g
+comment1.target=void\ paintComponent(Graphics)
+numComments=2

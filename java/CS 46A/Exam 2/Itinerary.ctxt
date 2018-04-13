@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Itinerary()
+comment0.text=\nConstructs\ an\ empty\ itinerary.\n\n
+comment1.params=cityName
+comment1.target=void\ addCity(String)
+comment1.text=\nAdd\ a\ city\ to\ the\ itinerary.\n@param\ cityName\ the\ city\ to\ add\n\n
+comment2.target=String\ toString()
+comment2.text=\nReturns\ a\ string\ describing\ the\ object.\n@return\ a\ string\ in\ the\ format\ "Itinerary[cityName1,cityName2,...]"\n\n
+comment3.target=void\ reverse()
+comment3.text=\nReverses\ the\ elements\ in\ the\ itinerary.\n\n
+numComments=4

@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=agrade
+comment0.target=Grade(String)
+comment0.text=\nconstruct\ a\ class\ that\ translate\ letter\ grade\ into\ numerical\ grade\n\n
+comment1.target=double\ getNumericGrade()
+numComments=2

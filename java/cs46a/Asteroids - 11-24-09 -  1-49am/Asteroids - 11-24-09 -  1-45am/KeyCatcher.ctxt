@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=e
+comment0.target=void\ keyPressed(KeyEvent)
+comment1.params=e
+comment1.target=void\ keyReleased(KeyEvent)
+comment2.params=e
+comment2.target=void\ keyTyped(KeyEvent)
+comment3.target=int\ getKey()
+comment4.target=boolean\ spacePressed()
+comment5.target=boolean\ upPressed()
+comment6.target=boolean\ leftPressed()
+comment7.target=boolean\ rightPressed()
+comment8.target=boolean\ downPressed()
+numComments=9

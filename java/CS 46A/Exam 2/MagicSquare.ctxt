@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=s
+comment0.target=MagicSquare(int)
+comment0.text=\nConstruct\ a\ MagicSquare\ object\n(precondition\:\ s\ is\ odd).\n@param\ s\ the\ size\ of\ the\ square\n\n
+comment1.target=String\ toString()
+comment1.text=\nGets\ a\ string\ representation\ of\ the\ contents\ of\ this\ square.\n@return\ a\ string\ represenation\ of\ the\ square\n\n
+numComments=2

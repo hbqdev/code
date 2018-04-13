@@ -1,0 +1,12 @@
+MAILTO="katydek@google.com,jweaver@google.com"
+
+00 05 * * 1-5 fab projectors_on
+00 20 * * 1-5 fab projectors_off
+
+30 16 * * 1-5 python ~/scanning-ops/scripts/check_storage.py --log_level="ERROR" --also_log_to_file --log_dir="/var/log/karnak/"
+
+00 20 * * 1-5 python ~/scanning-ops/scripts/generate_daily_report.py --log_level="ERROR" --also_log_to_file --log_dir="/var/log/karnak/"
+
+30 20 * * 1-5 python ~/scanning-ops/scripts/reaper.py --log_level="ERROR" --also_log_to_file --log_dir="/var/log/karnak/"
+
+05 00 * * 1-5 ~/scanning-ops/scripts/backup_station_config.py --output_path=~/config_backup/`date +\%F` --create_path --type prod canary dev --log_level="ERROR" --also_log_to_file --log_dir="/var/log/karnak/"

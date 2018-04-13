@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=CashRegister()
+comment0.text=\nConstructs\ a\ cash\ register\ with\ cleared\ item\ count\ and\ total.\n\n
+comment1.params=price
+comment1.target=void\ addItem(double)
+comment1.text=\nAdds\ an\ item\ to\ this\ cash\ register.\n@param\ price\ the\ price\ of\ this\ item\n\n
+comment2.target=double\ getTotal()
+comment2.text=\nGets\ the\ price\ of\ all\ items\ in\ the\ current\ sale.\n@return\ the\ total\ amount\n\n
+comment3.target=int\ getCount()
+comment3.text=\nGets\ the\ number\ of\ items\ in\ the\ current\ sale.\n@return\ the\ item\ count\n\n
+comment4.params=payment
+comment4.target=double\ giveChange(double)
+comment4.text=\nGives\ change,\ clears\ the\ item\ count\ and\ the\ total.\n@param\ payment\ the\ payment\ given\ by\ the\ customer\n\n
+numComments=5

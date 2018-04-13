@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=someyear
+comment0.target=Year(int)
+comment0.text=\ncontrucsts\ a\ class\ that\ calculates\ if\ a\ particular\ year\ is\ a\ leap\ year\n\n
+comment1.target=boolean\ isLeapYear()
+numComments=2

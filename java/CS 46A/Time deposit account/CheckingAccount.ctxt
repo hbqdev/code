@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=initialBalance
+comment0.target=CheckingAccount(double)
+comment0.text=\nConstructs\ a\ checking\ account\ with\ a\ given\ balance.\n@param\ initialBalance\ the\ initial\ balance\n\n
+comment1.params=amount
+comment1.target=void\ deposit(double)
+comment2.params=amount
+comment2.target=void\ withdraw(double)
+comment3.target=void\ deductFees()
+comment3.text=\nDeducts\ the\ accumulated\ fees\ and\ resets\ the\ntransaction\ count.\n\n
+numComments=4

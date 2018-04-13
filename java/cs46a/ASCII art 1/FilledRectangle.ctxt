@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=aWidth\ aHeight\ aFill
+comment0.target=FilledRectangle(int,\ int,\ char)
+comment0.text=\nConstructs\ a\ rectangle\ with\ a\ given\ width,\ height,\ and\ fill\n@param\ aWidth\ the\ width\ (including\ the\ corners)\n@param\ aHeight\ the\ height\ (including\ the\ corners)\n@param\ aFill\ the\ fill\ character\n\n
+comment1.params=i
+comment1.target=void\ printLine(int)
+comment1.text=\nPrints\ one\ line\ of\ the\ rectangle.\n@param\ i\ the\ line\ to\ print\ (1\ <\=\ i\ <\=\ height)\n\n
+comment2.target=void\ print()
+comment3.params=args
+comment3.target=void\ main(String[])
+numComments=4

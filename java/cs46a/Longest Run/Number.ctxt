@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=values
+comment0.target=int\ lengthOfLongestRun(int[])
+comment0.text=\nComputes\ the\ length\ of\ the\ longest\ run\ (sequence\ of\ \nadjacent\ repeated\ values)\ in\ an\ array.\n@param\ values\ an\ array\ of\ integer\ values\n@return\ the\ length\ of\ the\ longest\ run\ in\ values\n\n
+numComments=1

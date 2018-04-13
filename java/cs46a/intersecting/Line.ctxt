@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=aSlope\ aYIntercept
+comment0.target=Line(double,\ double)
+comment0.text=\nConstruct\ a\ line\ with\ equation\ y\ \=\ mx\ +\ b\n@param\ aSlope\ the\ slope\ of\ this\ line\n@param\ aYIntercept\ the\ y\ intercept\ of\ this\ line\n\n
+comment1.params=x\ y
+comment1.target=boolean\ contains(double,\ double)
+comment1.text=\nChecks\ whether\ a\ point\ is\ contained\ on\ the\ line\n@param\ x\ the\ x-coordinate\ of\ the\ point\n@param\ y\ the\ y-coordinate\ of\ the\ point\n@return\ true\ if\ (x,y)\ is\ contained\ in\ the\ line\n\n
+comment2.target=double\ getSlope()
+comment2.text=\nGets\ the\ slope\ of\ this\ line\n@return\ the\ slope\n\n
+comment3.target=double\ getYIntercept()
+comment3.text=\nGets\ the\ y\ intercept\ of\ this\ line\n@return\ the\ y\ intercept\n\n
+comment4.params=other
+comment4.target=boolean\ intersects(Line)
+comment4.text=\nChecks\ whether\ this\ line\ intersects\ with\ another.\n@param\ other\ another\ line\n@return\ true\ if\ this\ line\ and\ other\ intersect\n\n
+comment5.params=slope1\ yIntercept1\ slope2\ yIntercept2
+comment5.target=boolean\ check(double,\ double,\ double,\ double)
+numComments=6

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=CashRegister()
+comment0.text=\nConstructs\ a\ cash\ register\ with\ no\ money\ in\ it.\n\n
+comment1.params=amount
+comment1.target=void\ recordPurchase(double)
+comment1.text=\nRecords\ the\ sale\ of\ an\ item.\n@param\ amount\ the\ price\ of\ the\ item\n
+comment2.params=amount
+comment2.target=void\ enterPayment(double)
+comment3.params=coinType
+comment3.target=int\ giveChange(Coin)
+comment3.text=\nComputes\ the\ change\ due\ and\ resets\ the\ machine\ for\ the\ next\ customer.\n@return\ the\ change\ due\ to\ the\ customer\n
+numComments=4

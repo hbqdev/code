@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=soundFileName
+comment0.target=SoundEffect(String)
+comment1.target=void\ play()
+comment2.target=void\ loop()
+comment3.target=void\ stop()
+comment4.target=void\ init()
+numComments=5

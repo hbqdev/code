@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=rate\ months
+comment0.target=TimeDepositAccount(int,\ int)
+comment1.target=int\ getMounth()
+comment2.params=amount
+comment2.target=void\ withdraw(double)
+comment3.target=void\ addInterest()
+numComments=4

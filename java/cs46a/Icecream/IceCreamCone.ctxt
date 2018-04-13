@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=height\ radius
+comment0.target=IceCreamCone(double,\ double)
+comment0.text=\nConstructs\ an\ Icream\ Cone.\n\n
+comment1.target=double\ getSurfaceArea()
+comment2.target=double\ getVolume()
+numComments=3

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=word
+comment0.target=String\ getMiddle(String)
+comment0.text=\nGets\ the\ middle\ character\ or\ character\ pair\ from\ this\ word\nwhen\ possible.\n@param\ word\ a\ word\n@return\ the\ middle\ character\ (if\ the\ word\ length\ is\ odd)\ or\nmiddle\ two\ characters\ (if\ it\ is\ even),\ or\ the\ empty\ string\ if\nthe\ word\ is\ empty,\ or\ null\ if\ it\ is\ null.\n\n
+numComments=1

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Timer()
+comment0.text=\nConstruct\ a\ timer\ with\ 0\:0O\ elapsed\ time\n\n
+comment1.params=minutesToAdd
+comment1.target=void\ add(int)
+comment1.text=\nAdds\ a\ given\ number\ of\ minutes\ to\ the\ elapsed\ time.\n@param\ minutesToAdd\ the\ number\ of\ minutes\ (>\=0;\ may\ be\ larger\ than\ 60)\n\n
+comment2.target=String\ getTotal()
+comment2.text=\nGets\ the\ total\ elapsed\ time.\ \n@return\ a\ string\ describing\ the\ total\ time\ in\ the\ format\ h\:mm,\ \nwith\ mm\ <\ 60\n\n
+numComments=3

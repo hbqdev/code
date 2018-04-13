@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=wage\ hours
+comment0.target=PayCheck(double,\ double)
+comment1.target=double\ getPay()
+numComments=2

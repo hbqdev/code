@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=x\ y\ width\ height
+comment0.target=Tile(int,\ int,\ int,\ int)
+comment0.text=\nConstructs\ a\ tile\ with\ given\ dimensions.\n@param\ x\ the\ x-coordinate\ of\ the\ top\ left\ corner\n@param\ y\ the\ y-coordinate\ of\ the\ top\ left\ corner\n@param\ width\ the\ width\ of\ the\ tile\n@param\ height\ the\ height\ of\ the\ tile\n\n
+comment1.params=x\ y\ width\ height\ dx\ dy
+comment1.target=String\ check(int,\ int,\ int,\ int,\ int,\ int)
+numComments=2

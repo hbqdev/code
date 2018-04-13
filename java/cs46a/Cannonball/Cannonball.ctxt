@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=ivel\ angle
+comment0.target=Cannonball(double,\ double)
+comment0.text=\nConstructs\ a\ Cannonball.\n@param\ ivel\ the\ initial\ velocity\ of\ the\ ball\n@param\ angle\ the\ angle\ at\ which\ the\ cannonball\ was\ launched\n(in\ degrees)\n\n
+comment1.params=deltaT
+comment1.target=void\ move(double)
+comment1.text=\nUpdates\ the\ position\ and\ velocity\ of\ this\ cannonball\ \nafter\ a\ given\ time\ interval.\n@param\ deltaT\ the\ time\ interval\n\n
+comment2.target=double\ getX()
+comment2.text=\nGets\ the\ x\ position\ of\ this\ cannonball.\n@return\ the\ horizontal\ position\n\n
+comment3.target=double\ getY()
+comment3.text=\nGets\ the\ y\ position\ of\ this\ cannonball.\n@return\ the\ vertical\ position\n\n
+numComments=4

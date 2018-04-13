@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=rate
+comment0.target=SavingsAccount(double)
+comment1.params=amount
+comment1.target=void\ withdraw(double)
+comment2.target=void\ addInterest()
+numComments=3

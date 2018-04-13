@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=DataSet()
+comment0.text=\nConstructs\ an\ empty\ data\ set.\n\n
+comment1.params=x
+comment1.target=void\ add(double)
+comment1.text=\nAdds\ a\ data\ value\ to\ the\ data\ set.\n@param\ x\ a\ data\ value\n\n
+comment2.target=int\ getCount()
+comment2.text=\nGets\ the\ average\ of\ the\ added\ data.\n@return\ the\ average\ or\ 0\ if\ no\ data\ has\ been\ added\n\n
+comment3.target=double\ getAverage()
+comment4.target=double\ getStandardDeviation()
+comment4.text=\nGets\ the\ standard\ deviation.\n@return\ the\ standard\ deviation\n\n
+numComments=5

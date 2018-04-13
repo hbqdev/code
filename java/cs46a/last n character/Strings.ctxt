@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=s\ n
+comment0.target=String\ last(String,\ int)
+comment0.text=\nGets\ the\ last\ n\ characters\ from\ a\ string.\n@param\ s\ a\ string\n@param\ n\ a\ nonnegative\ integer\ <\=\ s.length()\n@return\ the\ string\ that\ contains\ the\ last\ n\ characters\ of\ s\n\n
+numComments=1

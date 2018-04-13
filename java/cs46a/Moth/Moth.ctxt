@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=initialPosition
+comment0.target=Moth(double)
+comment0.text=\nConstructs\ a\ moth\ with\ a\ given\ position,\ facing\ right.\n@param\ initialPosition\ the\ initial\ position\n\n
+comment1.params=lightPosition
+comment1.target=void\ moveToLight(double)
+comment1.text=\nMoves\ the\ moth\ halfway\ between\ the\ light\ position\ and\ the\ initial\ position.\n\n
+comment2.target=double\ getPosition()
+comment2.text=\nGets\ the\ current\ position\ of\ this\ moth.\n@return\ the\ position\n\n
+numComments=3

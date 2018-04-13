@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=s
+comment0.target=String\ getVowels(String)
+comment0.text=\nGets\ a\ string\ consisting\ of\ all\ vowels\ contained\ in\ a\ given\ string.\ Vowels\ are\nA\ E\ I\ O\ U\ a\ e\ i\ o\ u\n@param\ s\ a\ string\n@return\ a\ string\ with\ all\ vowels\ in\ s,\ in\ the\ order\ in\ which\ they\ appear\ in\ s\n
+numComments=1

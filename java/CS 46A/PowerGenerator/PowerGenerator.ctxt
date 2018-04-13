@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=aFactor
+comment0.target=PowerGenerator(double)
+comment0.text=\nConstructs\ a\ power\ generator.\n@param\ aFactor\ the\ number\ that\ will\ be\ multiplied\ by\ itself\n\n
+comment1.target=double\ nextPower()
+comment1.text=\nComputes\ the\ next\ power.\n\n
+numComments=2

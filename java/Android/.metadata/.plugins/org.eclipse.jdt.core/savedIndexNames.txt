@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+INDEX VERSION 1.126+/home/hbq/Documents/Programming/Java/Android/.metadata/.plugins/org.eclipse.jdt.core
+694657532.index
+1114729825.index
+2627003496.index
+=======
+INDEX VERSION 1.126+/home/hbq/code/Programming/Java/Android/.metadata/.plugins/org.eclipse.jdt.core
+2053493172.index
+1536540123.index
+>>>>>>> c99c36cf6a9bc64c651ec2ae0acd53e9118e1650

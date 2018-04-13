@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=rate
+comment0.target=SavingsAccount(int)
+comment0.text=\nConstructs\ a\ new\ savings\ account\ with\ given\ bank\ account\ balance.\n@param\ rate\ the\ interest\ rate\n\n
+comment1.params=amount
+comment1.target=void\ withdraw(double)
+comment1.text=\nWithdraws\ the\ given\ amount\n@param\ amount\ the\ amount\ withdrawn\n\n
+comment2.target=void\ endOfMonth()
+numComments=3

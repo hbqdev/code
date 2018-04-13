@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=Student(String)
+comment0.text=\nConstructs\ a\ student\ with\ a\ given\ name.\n@param\ n\ the\ name\n\n
+comment1.target=String\ getName()
+comment1.text=\nGets\ the\ name\ of\ this\ student.\n@return\ the\ name\n\n
+comment2.params=score
+comment2.target=void\ addQuiz(int)
+comment2.text=\nAdds\ a\ quiz\ score.\n@param\ score\ the\ score\ to\ add\n\n
+comment3.target=double\ getTotalScore()
+comment3.text=\nGets\ the\ sum\ of\ all\ quiz\ scores.\n@return\ the\ total\ score\n\n
+comment4.target=double\ getAverageScore()
+comment4.text=\nGets\ the\ average\ of\ all\ quiz\ scores.\n@return\ the\ average\ score\n\n
+numComments=5

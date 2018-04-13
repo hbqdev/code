@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=aWidth\ aHeight
+comment0.target=RandomShapeGenerator(int,\ int)
+comment1.target=Shape\ randomShape()
+numComments=2

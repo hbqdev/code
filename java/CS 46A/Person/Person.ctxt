@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=aName\ address
+comment0.target=Person(String,\ Address)
+comment0.text=\nConstructs\ a\ person.\ \n@param\ aName\ the\ person's\ name\n@param\ aStreet\ the\ street\n@param\ aCity\ the\ city\n@param\ aState\ the\ two-letter\ state\ code\n@param\ aZip\ the\ ZIP\ postal\ code\n\n
+comment1.target=String\ formatForMailing()
+comment1.text=\nFormats\ the\ person's\ name\ and\ address\ for\ mailing.\n@return\ a\ string\ suitable\ for\ printing\ on\ a\ mailing\ label\n\n
+comment2.params=args
+comment2.target=void\ main(String[])
+numComments=3

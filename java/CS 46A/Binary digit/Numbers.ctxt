@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=aNumber
+comment0.target=int\ binaryDigits(int)
+comment0.text=\nReturns\ the\ number\ of\ digits\ in\ the\ binary\nrepresentation\ of\ a\ number\n@param\ n\ a\ nonnegative\ number\n@return\ the\ number\ of\ binary\ digits\ needed\ to\nrepresent\ n\n\n
+comment1.params=args
+comment1.target=void\ main(String[])
+numComments=2

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=aX\ aY\ aRadius\ someColor
+comment0.target=Ring(int,\ int,\ int,\ Color)
+comment0.text=\nConstructs\ a\ circle\ that\ represents\ the\ Olympic\ rings.\n@param\ anX\ the\ x\ coordinate\n@param\ aY\ the\ y\ coordinate\n@param\ aRadius\ the\ radius\ of\ the\ circle\n@param\ aColor\ the\ color\ of\ the\ ring\n\n
+comment1.params=g2
+comment1.target=void\ draw(Graphics2D)
+comment1.text=\nDraws\ the\ ring.\n@param\ g2\ the\ graphic\ context\n\n
+numComments=2

@@ -1,0 +1,16 @@
+2014-01-15 07:21:39-0800 [HTTPChannel,20,192.168.101.42] going to configure for capture of type : swivel
+2014-01-15 07:24:18-0800 [-] capture complete
+2014-01-15 07:26:39-0800 [HTTPChannel,20,192.168.101.42] uploading to config: {"type": "BigStore", "bucket": "objects3d-scans-sb", "name": "bigstore"}
+2014-01-15 08:21:39-0800 [HTTPChannel,20,192.168.101.42] going to configure for capture of type : swivel
+2014-01-15 08:24:18-0800 [-] capture complete
+2014-01-15 08:27:39-0800 [HTTPChannel,20,192.168.101.42] uploading to config: {"type": "BigStore", "bucket": "objects3d-scans-sb", "name": "bigstore"}
+2014-01-15 13:29:59-0800 [HTTPChannel,20,192.168.101.42] going to configure for capture of type : swivel
+2014-01-15 13:35:18-0800 [-] capture complete
+2014-01-15 13:36:59-0800 [HTTPChannel,20,192.168.101.42] uploading to config: {"type": "BigStore", "bucket": "objects3d-scans-sb", "name": "bigstore"}
+2014-01-15 13:21:39-0800 [HTTPChannel,20,192.168.101.42] going to configure for capture of type : swivel
+2014-01-15 14:25:39-0800 [HTTPChannel,20,192.168.101.42] going to configure for capture of type : swivel
+2014-01-15 14:28:18-0800 [-] capture complete
+2014-01-15 14:29:39-0800 [HTTPChannel,20,192.168.101.42] uploading to config: {"type": "BigStore", "bucket": "objects3d-scans-sb", "name": "bigstore"}
+2014-01-15 18:21:39-0800 [HTTPChannel,20,192.168.101.42] going to configure for capture of type : swivel
+2014-01-15 18:28:18-0800 [-] capture complete
+2014-01-15 18:29:39-0800 [HTTPChannel,20,192.168.101.42] uploading to config: {"type": "BigStore", "bucket": "objects3d-scans-sb", "name": "bigstore"}

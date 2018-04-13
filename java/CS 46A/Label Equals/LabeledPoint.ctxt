@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=anX\ aY\ aLabel
+comment0.target=LabeledPoint(double,\ double,\ String)
+comment0.text=\nConstructs\ a\ labeled\ point\ with\ a\ given\ position\ and\ label.\n@param\ anX\ the\ x-coordinate\ of\ the\ point\n@param\ aY\ the\ y-coordinate\ of\ the\ point\n@param\ aLabel\ the\ label\ of\ the\ point\n\n
+comment1.params=aX\ bY\ bLabel
+comment1.target=boolean\ equals(double,\ double,\ String)
+comment2.params=x1\ y1\ s1\ x2\ y2\ s2
+comment2.target=boolean\ check(double,\ double,\ String,\ double,\ double,\ String)
+numComments=3

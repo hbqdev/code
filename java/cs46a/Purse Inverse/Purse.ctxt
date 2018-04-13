@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Purse()
+comment0.text=\nConstructs\ an\ empty\ purse.\n\n
+comment1.params=coinName
+comment1.target=void\ addCoin(String)
+comment1.text=\nAdds\ a\ coin\ to\ the\ purse.\n@param\ coinName\ the\ coin\ to\ add\n\n
+comment2.target=String\ toString()
+comment2.text=\nReturns\ a\ string\ describing\ the\ object.\n@return\ a\ string\ in\ the\ format\ "Purse[coinName1,coinName2,...]"\n\n
+comment3.target=void\ reverse()
+comment3.text=\nReverses\ the\ elements\ in\ the\ purse.\n\n
+numComments=4

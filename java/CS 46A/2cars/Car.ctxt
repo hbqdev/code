@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=x\ y
+comment0.target=Car(int,\ int)
+comment0.text=\nConstructs\ a\ car\ with\ a\ given\ top-left\ corner.\n@param\ x\ the\ x-coordinate\ of\ the\ top-left\ corner\n@param\ y\ the\ y-coordinate\ of\ the\ top-left\ corner\n\n
+comment1.params=g2
+comment1.target=void\ draw(Graphics2D)
+comment1.text=\nDraws\ the\ car.\n@param\ g2\ the\ graphics\ context\n\n
+numComments=2

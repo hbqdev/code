@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=a\ b
+comment0.target=int\ countPerfectSquares(int,\ int)
+comment0.text=\nComputes\ a\ sum\ of\ Perfec\ Squares\ integers\ \n@param\ a\ the\ lower\ bound\ (may\ be\ odd\ or\ even)\n@param\ a\ the\ lower\ bound\ (may\ be\ odd\ or\ even)\n@return\ the\ sum\ of\ perfectt\ integers\ between\ a\ and\ b\ (inclusive).\n\n
+numComments=1

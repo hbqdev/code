@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=str
+comment0.target=char\ longestRepeated(String)
+comment0.text=\nReturns\ the\ character\ that\ forms\ the\ longest\ repetition\ in\ this\ string.\ \n@param\ str\ a\ string\ of\ length\ >\ 0\n@return\ the\ character\ occurring\ in\ the\ longest\ most\ repetition\ in\ str.\ If\ more\ than\ one\ letter\ occur\ with\ the\ \nsame\ maximum\ length,\ return\ any\ one\ of\ them.\n\n
+comment1.params=args
+comment1.target=void\ main(String[])
+numComments=2

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=numbers
+comment0.target=Square(int)
+comment0.text=\nconstruct\ a\ Square\ class\n\n
+comment1.params=i
+comment1.target=void\ add(int)
+comment2.target=boolean\ isMagic()
+numComments=3

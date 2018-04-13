@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=aWidth\ aHeight
+comment0.target=Rectangle(int,\ int)
+comment0.text=\nConstructs\ a\ rectangle\ with\ a\ given\ width\ and\ height.\n@param\ aWidth\ the\ width\ (including\ the\ corners)\n@param\ aHeight\ the\ height\ (including\ the\ corners)\n\n
+comment1.target=int\ getWidth()
+comment1.text=\nGets\ the\ width\ of\ this\ rectangle.\n@return\ the\ width\n\n
+comment2.target=int\ getHeight()
+comment2.text=\nGets\ the\ height\ of\ this\ rectangle.\n@return\ the\ height\n\n
+comment3.target=void\ print()
+comment3.text=\nPrints\ the\ rectangle.\n\n
+comment4.params=i
+comment4.target=void\ printLine(int)
+comment4.text=\nPrints\ one\ line\ of\ the\ rectangle.\n@param\ i\ the\ line\ to\ print\ (1\ <\=\ i\ <\=\ height)\n\n
+comment5.params=boundary\ middle
+comment5.target=void\ printHelper(char,\ char)
+comment5.text=\nPrints\ one\ line\ of\ the\ rectangle.\n@param\ boundary\ the\ character\ to\ be\ used\ at\ the\ left\ and\nright\ boundary\n@param\ middle\ the\ character\ to\ be\ used\ elsewhere\n\n
+numComments=6

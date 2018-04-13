@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=aNum
+comment0.target=FactorGenerator(int)
+comment0.text=\nCreates\ a\ FactorGenerator\ object\ used\ to\ determine\ the\ factor\ of\nan\ input\ value.\n@param\ aNum\ is\ the\ input\ value\n\n
+comment1.target=boolean\ hasMoreFactors()
+comment1.text=\nDetermine\ whether\ or\ not\ there\ are\ more\ factors.\n@return\ true\ there\ are\ more\ factors\n\n
+comment2.target=int\ nextFactor()
+comment2.text=\nCalculate\ the\ next\ factor\ of\ a\ value.\n@return\ factor\ the\ next\ factor\n\n
+numComments=3

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=aValue\ aName
+comment0.target=Coin(double,\ String)
+comment1.target=double\ getValue()
+numComments=2

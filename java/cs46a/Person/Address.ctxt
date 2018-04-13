@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=aStreet\ aCity\ aState\ aZip
+comment0.target=Address(String,\ String,\ String,\ String)
+comment0.text=\nConstructs\ a\ mailing\ address.\ \n@param\ aStreet\ the\ street\n@param\ aCity\ the\ city\n@param\ aState\ the\ two-letter\ state\ code\n@param\ aZip\ the\ ZIP\ postal\ code\n\n
+comment1.target=String\ format()
+comment1.text=\nFormats\ the\ address.\n@return\ a\ string\ containing\ the\ address\ in\ mailing\ list\ format\n\n
+numComments=2

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=aWidth\ aHeight\ aTitle
+comment0.target=TitledRectangle(int,\ int,\ String)
+comment0.text=\nConstructs\ a\ rectangle\ with\ a\ given\ width,\ height,\ and\ title\n@param\ aWidth\ the\ width\ (including\ the\ corners)\n@param\ aHeight\ the\ height\ (including\ the\ corners)\n@param\ aTitle\ the\ title\n\n
+comment1.target=String\ getTitle()
+comment2.target=void\ print()
+comment3.params=args
+comment3.target=void\ main(String[])
+numComments=4

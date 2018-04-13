@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=r
+comment0.target=double\ sphereVolume(double)
+comment0.text=\ncompute\ the\ volume\ of\ a\ sphere\n\n
+comment1.params=r
+comment1.target=double\ sphereSurface(double)
+comment1.text=\ncompute\ the\ Surface\ area\ of\ a\ sphere\n\n
+comment2.params=r\ h
+comment2.target=double\ cylinderVolume(double,\ double)
+comment2.text=\nComputer\ the\ voume\ of\ a\ Cylinder\n\n
+comment3.params=r\ h
+comment3.target=double\ cylinderSurface(double,\ double)
+comment3.text=\nCompute\ the\ surface\ Area\ of\ a\ Cylinder\n\n
+comment4.params=r\ h
+comment4.target=double\ coneVolume(double,\ double)
+comment4.text=\nCompute\ the\ Volume\ of\ a\ cone\n\n
+comment5.params=r\ h
+comment5.target=double\ coneSurface(double,\ double)
+comment5.text=\nCompute\ the\ surface\ Area\ of\ a\ Cone\n\n
+numComments=6

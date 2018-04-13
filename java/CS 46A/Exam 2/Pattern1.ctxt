@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=row\ column\ color
+comment0.target=void\ drawRectangle(int,\ int,\ Color)
+comment0.text=\nDraws\ a\ rectangle\ at\ the\ given\ row\ and\ column\ position\n@param\ row\ the\ row\ number\ between\ 0\ (inclusive)\ and\ 10\ (exclusive)\n@oaram\ column\ the\ column\ number\ between\ 0\ (inclusive)\ and\ 10\ (exclusive)\n@param\ color\ the\ color\ (such\ as\ Color.RED\ or\ Color.BLUE)\n\n
+comment1.params=g
+comment1.target=void\ paintComponent(Graphics)
+comment2.target=Dimension\ getPreferredSize()
+comment3.params=args
+comment3.target=void\ main(String[])
+numComments=4

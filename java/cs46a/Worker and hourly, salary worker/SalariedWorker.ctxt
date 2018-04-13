@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=aNAME\ aSALARY
+comment0.target=SalariedWorker(String,\ double)
+comment1.params=hours
+comment1.target=int\ computePay(int)
+numComments=2

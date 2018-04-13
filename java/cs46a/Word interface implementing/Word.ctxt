@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=s
+comment0.target=Word(String)
+comment0.text=\nConstructs\ a\ word\ by\ removing\ leading\ and\ trailing\ non-\nletter\ characters,\ such\ as\ punctuation\ marks.\n@param\ s\ the\ input\ string\n\n
+comment1.target=String\ toString()
+comment1.text=\nReturns\ the\ text\ of\ the\ word,\ after\ removal\ of\ the\nleading\ and\ trailing\ non-letter\ characters.\n@return\ the\ text\ of\ the\ word\n\n
+comment2.target=int\ countSyllables()
+comment2.text=\nCounts\ the\ syllables\ in\ the\ word.\n@return\ the\ syllable\ count\n\n
+comment3.target=Word\ makeDouble()
+numComments=4

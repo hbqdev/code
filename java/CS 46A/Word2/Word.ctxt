@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=text
+comment0.target=Word(String)
+comment0.text=\nConstructs\ a\ word.\n@param\ text\ the\ characters\ in\ this\ word\n\n
+comment1.params=letter
+comment1.target=boolean\ isVowel(String)
+comment1.text=\nTests\ whether\ a\ letter\ is\ a\ vowel\n@param\ letter\ a\ string\ of\ length\ 1\n@return\ true\ if\ letter\ is\ a\ vowel\n\n
+comment2.target=int\ countVowels()
+comment3.target=int\ countVowelGroups()
+comment4.target=String\ toString()
+numComments=5

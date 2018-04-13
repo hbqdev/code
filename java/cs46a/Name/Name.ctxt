@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=aFirst\ aMiddle\ aLast
+comment0.target=Name(String,\ String,\ String)
+comment0.text=\nConstructs\ a\ name.\n@param\ aFirst\ the\ first\ name\ of\ this\ name\n@param\ aMiddle\ the\ middle\ name\ of\ this\ name\n@param\ aLast\ the\ last\ name\ of\ this\ name\n\n
+comment1.target=String\ getInitials()
+comment1.text=\nGets\ the\ initials\ of\ this\ name\n@return\ a\ string\ consisting\ of\ the\ first\ character\ of\ the\ first,\ middle,\nand\ last\ name\n\n
+numComments=2

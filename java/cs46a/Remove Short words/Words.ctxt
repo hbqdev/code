@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=words
+comment0.target=void\ removeShortWords(String[])
+comment0.text=\nRemoves\ all\ short\ words\ (length\ <\=\ 3)\ from\ an\ array.\ The\ \norder\ of\ the\ remaining\ element\ is\ left\ unchanged.\ The\ unused\nend\ of\ the\ array\ is\ filled\ with\ empty\ strings.\n@param\ words\ the\ array\ from\ which\ the\ short\ words\ are\ to\ be\ removed\n\n
+comment1.params=args
+comment1.target=void\ main(String[])
+numComments=2

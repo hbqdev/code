@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=aValue\ aName
+comment0.target=Coin(double,\ String)
+comment0.text=\nConstructs\ a\ coin.\n@param\ aValue\ the\ monetary\ value\ of\ the\ coin.\n@param\ aName\ the\ name\ of\ the\ coin\n\n
+comment1.target=double\ getValue()
+comment1.text=\nGets\ the\ coin\ value.\n@return\ the\ value\n\n
+comment2.target=String\ getName()
+comment2.text=\nGets\ the\ coin\ name.\n@return\ the\ name\n\n
+comment3.target=String\ toString()
+comment3.text=\nReturns\ a\ string\ representation\ of\ the\ object.\n@return\ name\ and\ value\ of\ coin\n\n
+comment4.target=int\ objectCount()
+comment5.params=dimes\ quarters
+comment5.target=int\ check(int,\ int)
+numComments=6

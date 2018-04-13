@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=aname\ Identification
+comment0.target=Faculty(String,\ String)
+comment1.target=String\ toString()
+numComments=2

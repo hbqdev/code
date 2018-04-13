@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=shape
+comment0.target=void\ addShape(Shape)
+comment1.target=void\ repaintFrame()
+comment2.target=VisibleRectangle()
+comment2.text=\nConstructs\ a\ rectangle\ with\ top\ left\ corner\ (0,\ 0),\ width\ 0,\ and\ height\ 0.\n\n
+comment3.params=x\ y\ width\ height
+comment3.target=VisibleRectangle(int,\ int,\ int,\ int)
+comment3.text=\nConstructs\ a\ new\ <code>Rectangle</code>\ with\ a\ given\ upper\ left\ corner,\nwidth,\ and\ height.\ \n@param\ \ \ \ \ x\ the\ y\ coordinate\ of\ the\ top\ left\ corner\n@param\ \ \ \ \ y\ the\ y\ coordinate\ of\ the\ top\ left\ corner\n@param\ \ \ \ \ width\ the\ width\ of\ the\ <code>Rectangle</code>\n@param\ \ \ \ \ height\ the\ height\ of\ the\ <code>Rectangle</code>\n\n
+comment4.params=dx\ dy
+comment4.target=void\ translate(int,\ int)
+comment4.text=\nTranslates\ this\ <code>Rectangle</code>\ the\ indicated\ distance,\nto\ the\ right\ along\ the\ X\ coordinate\ axis,\ and\ \ndownward\ along\ the\ Y\ coordinate\ axis.\n@param\ dx\ the\ distance\ to\ move\ this\ <code>Rectangle</code>\ \nalong\ the\ X\ axis\n@param\ dy\ the\ distance\ to\ move\ this\ <code>Rectangle</code>\ \nalong\ the\ Y\ axis\n\n
+comment5.params=h\ v
+comment5.target=void\ grow(int,\ int)
+comment5.text=\nResizes\ the\ <code>Rectangle</code>\ both\ horizontally\ and\ vertically.\n<p>\nThis\ method\ modifies\ the\ <code>Rectangle</code>\ so\ that\ it\ is\ \n<code>h</code>\ units\ larger\ on\ both\ the\ left\ and\ right\ side,\ \nand\ <code>v</code>\ units\ larger\ at\ both\ the\ top\ and\ bottom.\ \n<p>\nThe\ new\ <code>Rectangle</code>\ has\ (x\ -\ h,\ y\ -\ v)\nas\ its\ upper-left\ corner,\nnew\ width\ equal\ to\ old\ width\ +\ 2h,\nnew\ height\ equal\ to\ old\ height\ +\ 2v.\n<p>\nIf\ negative\ values\ are\ supplied\ for\ <code>h</code>\ and\ \n<code>v</code>,\ the\ size\ of\ the\ <code>Rectangle</code>\ \ndecreases.\ \n@param\ h\ the\ horizontal\ expansion\n@param\ v\ the\ vertical\ expansion\n\n
+numComments=6

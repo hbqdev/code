@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Text()
+comment1.target=void\ removeAdjacentDuplicates()
+comment2.target=ArrayList<String>\ getWords()
+comment2.text=\nGets\ the\ words\ from\ this\ text.\n@return\ an\ array\ list\ containing\ the\ words\n\n
+comment3.target=void\ pick()
+comment3.text=\nLets\ the\ user\ pick\ a\ file\ for\ loading\n\n
+comment4.params=source
+comment4.target=boolean\ load(String)
+comment4.text=\nLoads\ a\ file.\n@param\ source\ a\ URL\ or\ file\ name\n\n
+comment5.target=void\ explore()
+comment5.text=\nDisplays\ the\ words\ in\ a\ text\ area\n\n
+numComments=6
